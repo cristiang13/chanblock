@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- This is data table -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="{% static  'assets/vendor_components/datatable/datatables.min.js'%}"></script>
+
+<style type="text/css"> 
+    thead tr  { 
+        background-color:#fafbfd  
+    }
+
+    tbody tr td a {
+        color: #ffffff
+    }
+
+    table { 
+      
+        overflow:scroll;
+    }
+   
+</style>
+<section class="py-lg-80 py-30 overflow-xh">
+ 
+  
+
+        <div class="row justify-content-center">
+            <div class="row">
+                    <div class="col-12 ">
+                    
+                        <h1 align="center" class="box-title container">Detail Crypto Market Indicators </h1>
+                        <h4 class="box-title"></h4> 
+                        <div class="box">
+                                <div class="box-header with-border">
+                                    <div class="col-lg-12 col-md-12 " >
+                                            <div class="col-4">
+                                                 <a type="btn" class="btn btn-warning" href="{% url 'createTable'%}"  >create table</a>
+                                           </div>
+                                   </div>
+                                </div>
+
+                                <div class="box-body">
+
+                                   
+                                    <table id="example" class="table " style="width:100%">
+                                         
+                                            <thead>
+                                                <tr role="row" >
+                                                    
+                                                    {% for name in nameColumns %}
+                                                        <th class="text-right" value="{{name}}"> {{name}} </th>
+                                                    {% endfor %}
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for metrics in list_metrics %}
+                                                    <tr>
+                                                        {% for variable in metrics %}
+                                                                
+                                                               
+                                                                {% if "-" in variable|first %}
+                                                                    <td class="no-wrap text-right" style="color:#FF0000">{{variable}}</td>
+
+                                                                {% elif "$" in variable|first %}
+                                                                <td class="no-wrap text-right" style="color:#0D2A5E"><strong>{{variable}}</strong></td>
+                                                                {% elif variable == None %}
+                                                                <td class="no-wrap text-right">-</td>
+                                                                {%else%}
+                                                                <td>{{variable}}</td>
+                                                                {%endif%}
+                                                               
+                                                           
+                                                        {% endfor %}   
+                                                    </tr>
+                                                {% endfor %} 
+
+                                            </tbody>
+                                        </table>
+                                    
+                                </div>
+                            <!-- /.box-body -->
+                            </div>
+                    </div>
+            </div>   
+        
+        </div>
+ 
+
+  
+</section>
+	
+	
+<script>
+     $(document).ready(function() {
+        
+        var table = $('#example').DataTable( { 
+            
+            "scrollY": 650,
+            "scrollX": true,
+            "pageLength": 100,
+            "scrollCollapse": true,
+            
+            "fixedColumns":   {
+                leftColumns: 2
+            },
+       
+           
+        } );
+
+        const elementosFila = document.getElementsByTagName("th");
+       for (let i = 0; i < elementosFila.length; i++) {
+        
+        console.log(elementosFila[i].getAttribute('value'))
+      }
+        //console.log(elementosFila)
+        
+           // $('a.toggle-vis').on('click', function (e) {
+           //     e.preventDefault();
+         //
+                // Get the column API object
+            //    var column = table.column($(this).attr('data-column'));
+         
+                // Toggle the visibility
+           //     column.visible(!column.visible());
+           // });          
+                    
+    
+    } ); 
+
+
+    
+
+</script>
+	
+{% if messages %}
+{% for message in messages %} 
+            
+    <script>
+        Swal.fire({
+                'title': '{{ message.tags }}',
+                'text': '{{message}}',
+                'icon': '{{ message.tags }}',
+                
+        })
+                
+    </script>
+         
+{% endfor %} 
+{% endif %}
+{% endblock %}

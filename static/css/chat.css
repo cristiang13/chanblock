@@ -1,0 +1,238 @@
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 1000;
+  width: auto;
+  height: auto; /* Asegúrate de que la altura y el ancho sean iguales para un círculo perfecto */
+
+}
+.chat-icon img {
+  width: 90%; /* Tamaño de la imagen o del texto */
+  height: auto; /* Altura automática para mantener la proporción */
+  object-fit: cover; /* Solo necesario para imágenes */
+  padding-top: 0.7rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.2rem;
+  
+  
+}
+
+.chat-box {
+position: fixed;
+bottom: 0;
+padding-left: 0;
+right: 35px;
+width: 350px;
+height: 500px;
+border-radius: 5px;
+background-color: transparent;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+z-index: 999;
+transform: translateY(100%); /* Empieza oculto (fuera de la pantalla) */
+transition: transform 0.3s ease-in-out; /* Transición para el desplazamiento */
+}
+
+.chat-box.active {
+transform: translateY(0); /* Vuelve a la posición original cuando está activo */
+}
+
+.card-chat {
+  width: 350px;
+  background-color: #fff;
+  right: 30px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  background-color: #25D366;
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.chat-window {
+  height: 390px;
+  overflow-y: scroll;
+}
+
+.message-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-input {
+  display: flex;
+  bottom: 0;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.message-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.send-button {
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+
+.message-list {
+  list-style: none;
+  padding: 0;
+}
+
+.message-list li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px 20px;
+  border-radius: 15px;
+}
+
+.sent {
+  padding-top: 0.2rem;
+  background-color: #e6e6fa; /* Color claro para los mensajes enviados */
+  text-align: right;
+}
+
+.received {
+padding-top: 0.2rem;
+  background-color: #ffe69c; /* Color diferente para las respuestas */
+  text-align: left;
+}
+
+
+.spinner-chat {
+border: 4px solid rgba(0, 0, 0, 0.1);
+width: 20px;
+height: 20px;
+border-radius: 50%;
+border-left-color: #09f;
+animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+
+.chatBtn {
+width: 60px;
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: none;
+background-color: #25D366;
+background-image: linear-gradient(147deg, #25D366, #1da851, #25D366);
+cursor: pointer;
+padding-top: 3px;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.164);
+position: relative;
+background-size: 300%;
+background-position: left;
+transition-duration: 1s;
+}
+
+.tooltip {
+position: absolute;
+top: -40px;
+opacity: 0;
+background-color: #25D366;
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition-duration: .5s;
+pointer-events: none;
+letter-spacing: 0.5px;
+}
+
+.chatBtn:hover .tooltip {
+opacity: 1;
+transition-duration: .5s;
+}
+
+.chatBtn:hover {
+background-position: right;
+transition-duration: 1s;
+}
+
+/* estilo para boton mostrar chat */
+.button-chat {
+position: relative;
+display: inline-block;
+margin: 15px;
+padding: 15px 30px;
+text-align: center;
+font-size: 18px;
+letter-spacing: 1px;
+text-decoration: none;
+color: #4b4c4b;
+background: white;
+cursor: pointer;
+transition: ease-out 0.5s;
+border: 2px solid #25D366;
+border-radius: 30px 30px 0px 30px;
+box-shadow: inset 0 0 0 0 #25D366;
+}
+
+.button-chat:hover {
+color: white;
+box-shadow: inset 0 -100px 0 0 #25D366;
+}
+
+.button-chat:active {
+transform: scale(0.9);
+}
+
+/* estilo para ocultar o mostrar boton chat dependiendo del tamaño de la pantalla */
+/* Estilos por defecto para pantallas pequeñas */
+.chatBtn {
+display: block; /* Muestra el botón redondo */
+}
+
+.button-chat {
+display: none; /* Oculta el botón rectangular */
+}
+
+/* Media query para pantallas mayores a 768px */
+@media (min-width: 768px) {
+.chatBtn {
+  display: none; /* Oculta el botón redondo en pantallas grandes */
+}
+
+.button-chat {
+  display: block; /* Muestra el botón rectangular en pantallas grandes */
+}
+}

@@ -1,0 +1,38 @@
+.button-graph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 15px;
+    gap: 8px;
+    background-color: #181717;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+  .button-graph .text {
+    color: white;
+   
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+  }
+  
+  .button-graph svg path {
+    transition: 400ms;
+  }
+  
+  .button-graph:hover {
+    background-color: transparent;
+  }
+  
+  .button-graph:hover .text {
+    color: #181717;
+  }
+  
+  .button-graph:hover svg path {
+    fill: #181717;
+  }

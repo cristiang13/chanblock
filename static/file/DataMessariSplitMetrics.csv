@@ -1,0 +1,297 @@
+market_data;price_usd;price usd;market_data;price usd
+market_data;price_btc;price btc;market_data;price btc
+market_data;price_eth;price eth;market_data;price eth
+market_data;volume_last_24_hours;volume last 24 hours;market_data;vol last 24H
+market_data;real_volume_last_24_hours;real volume last 24 hours;market_data;real vol last 24H
+market_data;volume_last_24_hours_overstatement_multiple;volume last 24 hours overstatement multiple;market_data;vol last 24H OM
+market_data;percent_change_usd_last_24_hours;percent change usd last 24 hours;market_data;% change usd last 24H
+market_data;percent_change_btc_last_24_hours;percent change btc last 24 hours;market_data;% change btc last 24H
+market_data;percent_change_eth_last_24_hours;percent change eth last 24 hours;market_data;% change eth last 24H
+market_data;last_trade_at;last trade at;market_data;last trade at
+marketcap;marketcap_dominance_percent;marketcap dominance percent;marketcap;Mcap dominance
+marketcap;current_marketcap_usd;current marketcap usd;marketcap;current Mcap usd
+marketcap;y_2050_marketcap_usd;y 2050 marketcap usd;marketcap;y 2050 Mcap usd
+marketcap;y_plus10_marketcap_usd;y plus10 marketcap usd;marketcap;y plus10 Mcap usd
+marketcap;liquid_marketcap_usd;liquid marketcap usd;marketcap;liquid Mcap usd
+marketcap;volume_turnover_last_24_hours_percent;volume turnover last 24 hours percent;marketcap;vol turnover last 24H %
+marketcap;realized_marketcap_usd;realized marketcap usd;marketcap;realized Mcap usd
+marketcap;outstanding_marketcap_usd;outstanding marketcap usd;marketcap;outstMcap usd
+supply;y_2050;y 2050;supply;y 2050
+supply;y_plus10;y plus10;supply;y plus10
+supply;liquid;liquid;supply;liquid
+supply;circulating;circulating;supply;circulating
+supply;y_2050_issued_percent;y 2050 issued percent;supply;y 2050 issued %
+supply;annual_inflation_percent;annual inflation percent;supply;annual inflation %
+supply;stock_to_flow;stock to flow;supply;stock to flow
+supply;y_plus10_issued_percent;y plus10 issued percent;supply;y plus10 issued %
+supply;supply_revived_90d;supply revived 90d;supply;supply revived 90d
+all_time_high;price;price;all_time_high_low;price
+all_time_high;at;at;all_time_high_low;at
+all_time_high;days_since;days since;all_time_high_low;day since
+all_time_high;percent_down;percent down;all_time_high_low;% down
+all_time_high;breakeven_multiple;breakeven multiple;all_time_high_low;breakeven multiple
+cycle_low;price;price;all_time_high_low;price
+cycle_low;at;at;all_time_high_low;at
+cycle_low;percent_up;percent up;all_time_high_low;% up
+cycle_low;days_since;days since;all_time_high_low;day since
+token_sale_stats;sale_proceeds_usd;sale proceeds usd;token_sale_stats;sale proceeds usd
+token_sale_stats;sale_start_date;sale start date;token_sale_stats;sale start date
+token_sale_stats;sale_end_date;sale end date;token_sale_stats;sale end date
+token_sale_stats;roi_since_sale_usd_percent;roi since sale usd percent;token_sale_stats;roi since sale usd %
+token_sale_stats;roi_since_sale_btc_percent;roi since sale btc percent;token_sale_stats;roi since sale btc %
+token_sale_stats;roi_since_sale_eth_percent;roi since sale eth percent;token_sale_stats;roi since sale eth %
+mining_stats;mining_algo;mining algo;mining_stats;ming algo
+mining_stats;network_hash_rate;network hash rate;mining_stats;network hash rate
+mining_stats;available_on_nicehash_percent;available on nicehash percent;mining_stats;available on nicehash %
+mining_stats;hash_rate;hash rate;mining_stats;hash rate
+mining_stats;hash_rate_30d_average;hash rate 30d average;mining_stats;hash rate 30d avg
+mining_stats;mining_revenue_per_hash_usd;mining revenue per hash usd;mining_stats;ming rev per hash usd
+mining_stats;mining_revenue_per_hash_native_units;mining revenue per hash native units;mining_stats;ming rev per hash unt
+mining_stats;mining_revenue_per_hash_per_second_usd;mining revenue per hash per second usd;mining_stats;ming rev x hash x sec usd
+mining_stats;mining_revenue_per_hash_per_second_native_units;mining revenue per hash per second native units;mining_stats;ming rev x hash x sec unt
+mining_stats;mining_revenue_from_fees_percent_last_24_hours;mining revenue from fees percent last 24 hours;mining_stats;ming rev fees % last 24H
+mining_stats;mining_revenue_native;mining revenue native;mining_stats;ming rev native
+mining_stats;mining_revenue_total;mining revenue total;mining_stats;ming rev total
+mining_stats;average_difficulty;average difficulty;mining_stats;avg difficulty
+blockchain_stats_24_hours;count_of_active_addresses;count of active addresses;blockchain_stats_24_hours;cnt of active Add
+blockchain_stats_24_hours;transaction_volume;transaction volume;blockchain_stats_24_hours;transaction vol
+blockchain_stats_24_hours;adjusted_transaction_volume;adjusted transaction volume;blockchain_stats_24_hours;adjed transaction vol
+blockchain_stats_24_hours;adjusted_nvt;adjusted nvt;blockchain_stats_24_hours;adjed nvt
+blockchain_stats_24_hours;median_tx_value;median tx value;blockchain_stats_24_hours;med tx value
+blockchain_stats_24_hours;median_tx_fee;median tx fee;blockchain_stats_24_hours;med tx fee
+blockchain_stats_24_hours;count_of_tx;count of tx;blockchain_stats_24_hours;cnt of tx
+blockchain_stats_24_hours;count_of_payments;count of payments;blockchain_stats_24_hours;cnt of payments
+blockchain_stats_24_hours;new_issuance;new issuance;blockchain_stats_24_hours;new issuance
+blockchain_stats_24_hours;average_difficulty;average difficulty;blockchain_stats_24_hours;avg difficulty
+blockchain_stats_24_hours;count_of_blocks_added;count of blocks added;blockchain_stats_24_hours;cnt of blocks added
+developer_activity;stars;stars;developer_activity;stars
+developer_activity;watchers;watchers;developer_activity;watchers
+roi_data;percent_change_last_1_week;last 1 week;roi_data;last 1 week
+roi_data;percent_change_last_1_month;last 1 month;roi_data;last 1 month
+roi_data;percent_change_last_3_months;last 3 months;roi_data;last 3 months
+roi_data;percent_change_last_1_year;last 1 year;roi_data;last 1y
+roi_data;percent_change_btc_last_1_week;btc last 1 week;roi_data;btc last 1 week
+roi_data;percent_change_btc_last_1_month;btc last 1 month;roi_data;btc last 1 month
+roi_data;percent_change_btc_last_3_months;btc last 3 months;roi_data;btc last 3 months
+roi_data;percent_change_btc_last_1_year;btc last 1 year;roi_data;btc last 1y
+roi_data;percent_change_eth_last_1_week;eth last 1 week;roi_data;eth last 1 week
+roi_data;percent_change_eth_last_1_month;eth last 1 month;roi_data;eth last 1 month
+roi_data;percent_change_eth_last_3_months;eth last 3 months;roi_data;eth last 3 months
+roi_data;percent_change_eth_last_1_year;eth last 1 year;roi_data;eth last 1y
+roi_data;percent_change_month_to_date;month to date;roi_data;month to date
+roi_data;percent_change_quarter_to_date;quarter to date;roi_data;quarter to date
+roi_data;percent_change_year_to_date;year to date;roi_data;year to date
+roi_by_year;2021_usd_percent;2021 usd percent;roi_data;2021 usd %
+roi_by_year;2020_usd_percent;2020 usd percent;roi_data;2020 usd %
+roi_by_year;2019_usd_percent;2019 usd percent;roi_data;2019 usd %
+roi_by_year;2018_usd_percent;2018 usd percent;roi_data;2018 usd %
+roi_by_year;2017_usd_percent;2017 usd percent;roi_data;2017 usd %
+roi_by_year;2016_usd_percent;2016 usd percent;roi_data;2016 usd %
+roi_by_year;2015_usd_percent;2015 usd percent;roi_data;2015 usd %
+roi_by_year;2014_usd_percent;2014 usd percent;roi_data;2014 usd %
+roi_by_year;2013_usd_percent;2013 usd percent;roi_data;2013 usd %
+roi_by_year;2012_usd_percent;2012 usd percent;roi_data;2012 usd %
+roi_by_year;2011_usd_percent;2011 usd percent;roi_data;2011 usd %
+risk_metrics;sharpe_ratios.last_30_days;sharpe ratios last 30 days;risk_metrics;sharpe ratios last 30d
+risk_metrics;sharpe_ratios.last_90_days;sharpe ratios last 90 days;risk_metrics;sharpe ratios last 90d
+risk_metrics;sharpe_ratios.last_1_year;sharpe ratios last 1 year;risk_metrics;sharpe ratios last 1y
+risk_metrics;sharpe_ratios.last_3_years;sharpe ratios last 3 years;risk_metrics;sharpe ratios last 3y
+risk_metrics;volatility_stats.volatility_last_30_days;volatility last 30 days;risk_metrics;volatility last 30d
+risk_metrics;volatility_stats.volatility_last_90_days;volatility last 90 days;risk_metrics;volatility last 90d
+risk_metrics;volatility_stats.volatility_last_1_year;volatility last 1 year;risk_metrics;volatility last 1y
+risk_metrics;volatility_stats.volatility_last_3_years;volatility last 3 years;risk_metrics;volatility last 3y
+on_chain_data;addresses_count;addresses count;on_chain_data;Add cnt
+on_chain_data;active_addresses;active addresses;on_chain_data;active Add
+on_chain_data;active_addresses_received_count;active addresses received count;on_chain_data;active Add receiv cnt
+on_chain_data;active_addresses_sent_count;active addresses sent count;on_chain_data;active Add sent cnt
+on_chain_data;addresses_balance_greater_0_001_native_units_count;addresses balance greater 0 001 native units count;on_chain_data;Add Bal > 0 001 unt cnt
+on_chain_data;addresses_balance_greater_0_01_native_units_count;addresses balance greater 0 01 native units count;on_chain_data;Add Bal > 0 01 unt cnt
+on_chain_data;addresses_balance_greater_0_1_native_units_count;addresses balance greater 0 1 native units count;on_chain_data;Add Bal > 0 1 unt cnt
+on_chain_data;addresses_balance_greater_1_usd_count;addresses balance greater 1 usd count;on_chain_data;Add Bal > 1 usd cnt
+on_chain_data;addresses_balance_greater_1_native_units_count;addresses balance greater 1 native units count;on_chain_data;Add Bal > 1 unt cnt
+on_chain_data;addresses_balance_greater_10_usd_count;addresses balance greater 10 usd count;on_chain_data;Add Bal > 10 usd cnt
+on_chain_data;addresses_balance_greater_10_native_units_count;addresses balance greater 10 native units count;on_chain_data;Add Bal > 10 unt cnt
+on_chain_data;addresses_balance_greater_100_usd_count;addresses balance greater 100 usd count;on_chain_data;Add Bal > 100 usd cnt
+on_chain_data;addresses_balance_greater_100_native_units_count;addresses balance greater 100 native units count;on_chain_data;Add Bal > 100 unt cnt
+on_chain_data;addresses_balance_greater_100k_usd_count;addresses balance greater 100k usd count;on_chain_data;Add Bal > 100k usd cnt
+on_chain_data;addresses_balance_greater_100k_native_units_count;addresses balance greater 100k native units count;on_chain_data;Add Bal > 100k unt cnt
+on_chain_data;addresses_balance_greater_10k_usd_count;addresses balance greater 10k usd count;on_chain_data;Add Bal > 10k usd cnt
+on_chain_data;addresses_balance_greater_10k_native_units_count;addresses balance greater 10k native units count;on_chain_data;Add Bal > 10k unt cnt
+on_chain_data;addresses_balance_greater_10m_usd_count;addresses balance greater 10m usd count;on_chain_data;Add Bal > 10m usd cnt
+on_chain_data;addresses_balance_greater_1k_usd_count;addresses balance greater 1k usd count;on_chain_data;Add Bal > 1k usd cnt
+on_chain_data;addresses_balance_greater_1k_native_units_count;addresses balance greater 1k native units count;on_chain_data;Add Bal > 1k unt cnt
+on_chain_data;addresses_balance_greater_1m_usd_count;addresses balance greater 1m usd count;on_chain_data;Add Bal > 1m usd cnt
+on_chain_data;addresses_balance_greater_1m_native_units_count;addresses balance greater 1m native units count;on_chain_data;Add Bal > 1m unt cnt
+on_chain_data;block_height;block height;on_chain_data;block height
+on_chain_data;average_block_interval;average block interval;on_chain_data;avg block interval
+on_chain_data;blocks_added_last_24_hours;blocks added last 24 hours;on_chain_data;blocks added last 24H
+on_chain_data;block_size_bytes_total;block size bytes total;on_chain_data;block size bytes total
+on_chain_data;block_size_bytes_average;block size bytes average;on_chain_data;block size bytes avg
+on_chain_data;block_weight;block weight;on_chain_data;block wgt
+on_chain_data;average_block_weight;average block weight;on_chain_data;avg block wgt
+on_chain_data;total_fees_last_24_hours;total fees last 24 hours;on_chain_data;total fees last 24H
+on_chain_data;total_fees_last_24_hours_usd;total fees last 24 hours usd;on_chain_data;total fees last 24H usd
+on_chain_data;hash_rate;hash rate;on_chain_data;hash rate
+on_chain_data;issuance_last_24_hours_native_units;issuance last 24 hours native units;on_chain_data;issuance last 24H unt
+on_chain_data;issuance_rate_daily;issuance rate daily;on_chain_data;issuance rate daily
+on_chain_data;issuance_total_usd;issuance total usd;on_chain_data;issuance total usd
+on_chain_data;issuance_total_native_units;issuance total native units;on_chain_data;issuance total unt
+on_chain_data;new_issuance;new issuance;on_chain_data;new issuance
+on_chain_data;issuance_rate;issuance rate;on_chain_data;issuance rate
+on_chain_data;realized_marketcap_usd;realized marketcap usd;on_chain_data;realized Mcap usd
+on_chain_data;adjusted_nvt;adjusted nvt;on_chain_data;adjed nvt
+on_chain_data;adjusted_nvt_90d_moving_average;adjusted nvt 90d moving average;on_chain_data;adjed nvt 90d MV
+on_chain_data;adjusted_rvt;adjusted rvt;on_chain_data;adjed rvt
+on_chain_data;adjusted_rvt_90d_moving_average;adjusted rvt 90d moving average;on_chain_data;adjed rvt 90d MV
+on_chain_data;txn_count_last_24_hours;txn count last 24 hours;on_chain_data;txn cnt last 24H
+on_chain_data;txn_per_second_count;txn per second count;on_chain_data;txn per sec cnt
+on_chain_data;average_fee_usd;average fee usd;on_chain_data;avg fee usd
+on_chain_data;average_fee_native_units;average fee native units;on_chain_data;avg fee unt
+on_chain_data;median_fee_usd;median fee usd;on_chain_data;med fee usd
+on_chain_data;median_fee_native_units;median fee native units;on_chain_data;med fee unt
+on_chain_data;transfer_count_last_24_hours;transfer count last 24 hours;on_chain_data;trf cnt last 24H
+on_chain_data;txn_volume_last_24_hours_usd;txn volume last 24 hours usd;on_chain_data;txn vol last 24H usd
+on_chain_data;adjusted_txn_volume_last_24_hours_usd;adjusted txn volume last 24 hours usd;on_chain_data;adj txn vol last 24H usd
+on_chain_data;adjusted_txn_volume_last_24_hours_native_units;adjusted txn volume last 24 hours native units;on_chain_data;adj txn vol last 24H unt
+on_chain_data;txn_volume_last_24_hours_native_units;txn volume last 24 hours native units;on_chain_data;txn vol last 24H unt
+on_chain_data;average_transfer_value_usd;average transfer value usd;on_chain_data;avg trf value usd
+on_chain_data;average_transfer_value_native_units;average transfer value native units;on_chain_data;avg trf value unt
+on_chain_data;median_transfer_value_usd;median transfer value usd;on_chain_data;med trf value usd
+on_chain_data;median_transfer_value_native_units;median transfer value native units;on_chain_data;med trf value unt
+on_chain_data;average_utxo_age;average utxo age;on_chain_data;avg utxo age
+on_chain_data;value_weighted_average_utxo_age;value weighted average utxo age;on_chain_data;value wgt ave utxo age
+on_chain_data;median_utxo_age;median utxo age;on_chain_data;med utxo age
+on_chain_data;utxo_count_last_24_hours;utxo count last 24 hours;on_chain_data;utxo cnt last 24H
+on_chain_data;utxo_in_loss_count;utxo in loss count;on_chain_data;utxo in loss cnt
+on_chain_data;utxo_in_profit_count;utxo in profit count;on_chain_data;utxo in profit cnt
+exchange_flows;flow_in_exchange_native_units;in exchange native units;exchange_flows;in exchange unt
+exchange_flows;flow_in_exchange_usd;in exchange usd;exchange_flows;in exchange usd
+exchange_flows;flow_in_exchange_native_units_inclusive;in exchange native units inclusive;exchange_flows;in exchange unt icl
+exchange_flows;flow_in_exchange_usd_inclusive;in exchange usd inclusive;exchange_flows;in exchange usd icl
+exchange_flows;flow_out_exchange_native_units;out exchange native units;exchange_flows;out exchange unt
+exchange_flows;flow_out_exchange_usd;out exchange usd;exchange_flows;out exchange usd
+exchange_flows;flow_out_exchange_native_units_inclusive;out exchange native units inclusive;exchange_flows;out exchange unt icl
+exchange_flows;flow_out_exchange_usd_inclusive;out exchange usd inclusive;exchange_flows;out exchange usd icl
+exchange_flows;flow_in_binance_usd;in binance usd;exchange_flows;in binance usd
+exchange_flows;flow_in_binance_native_units;in binance native units;exchange_flows;in binance unt
+exchange_flows;flow_in_bitfinex_usd;in bitfinex usd;exchange_flows;in bitfinex usd
+exchange_flows;flow_in_bitfinex_native_units;in bitfinex native units;exchange_flows;in bitfinex unt
+exchange_flows;flow_in_bitmex_usd;in bitmex usd;exchange_flows;in bitmex usd
+exchange_flows;flow_in_bitmex_native_units;in bitmex native units;exchange_flows;in bitmex unt
+exchange_flows;flow_in_bitstamp_usd;in bitstamp usd;exchange_flows;in bitstamp usd
+exchange_flows;flow_in_bitstamp_native_units;in bitstamp native units;exchange_flows;in bitstamp unt
+exchange_flows;flow_in_bittrex_usd;in bittrex usd;exchange_flows;in bittrex usd
+exchange_flows;flow_in_bittrex_native_units;in bittrex native units;exchange_flows;in bittrex unt
+exchange_flows;flow_in_gemini_usd;in gemini usd;exchange_flows;in gemini usd
+exchange_flows;flow_in_gemini_native_units;in gemini native units;exchange_flows;in gemini unt
+exchange_flows;flow_in_huobi_usd;in huobi usd;exchange_flows;in huobi usd
+exchange_flows;flow_in_huobi_native_units;in huobi native units;exchange_flows;in huobi unt
+exchange_flows;flow_in_kraken_usd;in kraken usd;exchange_flows;in kraken usd
+exchange_flows;flow_in_kraken_native_units;in kraken native units;exchange_flows;in kraken unt
+exchange_flows;flow_in_poloniex_usd;in poloniex usd;exchange_flows;in poloniex usd
+exchange_flows;flow_in_poloniex_native_units;in poloniex native units;exchange_flows;in poloniex unt
+exchange_flows;flow_net_binance_usd;net binance usd;exchange_flows;net binance usd
+exchange_flows;flow_net_binance_native_units;net binance native units;exchange_flows;net binance unt
+exchange_flows;flow_net_bitfinex_usd;net bitfinex usd;exchange_flows;net bitfinex usd
+exchange_flows;flow_net_bitfinex_native_units;net bitfinex native units;exchange_flows;net bitfinex unt
+exchange_flows;flow_net_bitmex_usd;net bitmex usd;exchange_flows;net bitmex usd
+exchange_flows;flow_net_bitmex_native_units;net bitmex native units;exchange_flows;net bitmex unt
+exchange_flows;flow_net_bitstamp_usd;net bitstamp usd;exchange_flows;net bitstamp usd
+exchange_flows;flow_net_bitstamp_native_units;net bitstamp native units;exchange_flows;net bitstamp unt
+exchange_flows;flow_net_bittrex_usd;net bittrex usd;exchange_flows;net bittrex usd
+exchange_flows;flow_net_bittrex_native_units;net bittrex native units;exchange_flows;net bittrex unt
+exchange_flows;flow_net_gemini_usd;net gemini usd;exchange_flows;net gemini usd
+exchange_flows;flow_net_gemini_native_units;net gemini native units;exchange_flows;net gemini unt
+exchange_flows;flow_net_huobi_usd;net huobi usd;exchange_flows;net huobi usd
+exchange_flows;flow_net_huobi_native_units;net huobi native units;exchange_flows;net huobi unt
+exchange_flows;flow_net_kraken_usd;net kraken usd;exchange_flows;net kraken usd
+exchange_flows;flow_net_kraken_native_units;net kraken native units;exchange_flows;net kraken unt
+exchange_flows;flow_net_poloniex_usd;net poloniex usd;exchange_flows;net poloniex usd
+exchange_flows;flow_net_poloniex_native_units;net poloniex native units;exchange_flows;net poloniex unt
+exchange_flows;flow_out_binance_usd;out binance usd;exchange_flows;out binance usd
+exchange_flows;flow_out_binance_native_units;out binance native units;exchange_flows;out binance unt
+exchange_flows;flow_out_bitfinex_usd;out bitfinex usd;exchange_flows;out bitfinex usd
+exchange_flows;flow_out_bitfinex_native_units;out bitfinex native units;exchange_flows;out bitfinex unt
+exchange_flows;flow_out_bitmex_usd;out bitmex usd;exchange_flows;out bitmex usd
+exchange_flows;flow_out_bitmex_native_units;out bitmex native units;exchange_flows;out bitmex unt
+exchange_flows;flow_out_bitstamp_usd;out bitstamp usd;exchange_flows;out bitstamp usd
+exchange_flows;flow_out_bitstamp_native_units;out bitstamp native units;exchange_flows;out bitstamp unt
+exchange_flows;flow_out_bittrex_usd;out bittrex usd;exchange_flows;out bittrex usd
+exchange_flows;flow_out_bittrex_native_units;out bittrex native units;exchange_flows;out bittrex unt
+exchange_flows;flow_out_gemini_usd;out gemini usd;exchange_flows;out gemini usd
+exchange_flows;flow_out_gemini_native_units;out gemini native units;exchange_flows;out gemini unt
+exchange_flows;flow_out_huobi_usd;out huobi usd;exchange_flows;out huobi usd
+exchange_flows;flow_out_huobi_native_units;out huobi native units;exchange_flows;out huobi unt
+exchange_flows;flow_out_kraken_usd;out kraken usd;exchange_flows;out kraken usd
+exchange_flows;flow_out_kraken_native_units;out kraken native units;exchange_flows;out kraken unt
+exchange_flows;flow_out_poloniex_usd;out poloniex usd;exchange_flows;out poloniex usd
+exchange_flows;flow_out_poloniex_native_units;out poloniex native units;exchange_flows;out poloniex unt
+exchange_flows;supply_exchange_native_units;y exchange native units;exchange_flows;y exchange unt
+exchange_flows;supply_exchange_usd;exchange usd;exchange_flows;exchange usd
+exchange_flows;supply_binance_usd;binance usd;exchange_flows;binance usd
+exchange_flows;supply_binance_native_units;binance native units;exchange_flows;binance unt
+exchange_flows;supply_bitfinex_usd;bitfinex usd;exchange_flows;bitfinex usd
+exchange_flows;supply_bitfinex_native_units;bitfinex native units;exchange_flows;bitfinex unt
+exchange_flows;supply_bitmex_usd;bitmex usd;exchange_flows;bitmex usd
+exchange_flows;supply_bitmex_native_units;bitmex native units;exchange_flows;bitmex unt
+exchange_flows;supply_bitstamp_usd;bitstamp usd;exchange_flows;bitstamp usd
+exchange_flows;supply_bitstamp_native_units;bitstamp native units;exchange_flows;bitstamp unt
+exchange_flows;supply_bittrex_usd;bittrex usd;exchange_flows;bittrex usd
+exchange_flows;supply_bittrex_native_units;bittrex native units;exchange_flows;bittrex unt
+exchange_flows;supply_gemini_usd;gemini usd;exchange_flows;gemini usd
+exchange_flows;supply_gemini_native_units;gemini native units;exchange_flows;gemini unt
+exchange_flows;supply_huobi_usd;huobi usd;exchange_flows;huobi usd
+exchange_flows;supply_huobi_native_units;huobi native units;exchange_flows;huobi unt
+exchange_flows;supply_kraken_usd;kraken usd;exchange_flows;kraken usd
+exchange_flows;supply_kraken_native_units;kraken native units;exchange_flows;kraken unt
+exchange_flows;supply_poloniex_usd;poloniex usd;exchange_flows;poloniex usd
+exchange_flows;supply_poloniex_native_units;poloniex native units;exchange_flows;poloniex unt
+miner_flows;supply_1hop_miners_usd;1hop miners usd;miner_flows;1hop miners usd
+miner_flows;supply_1hop_miners_native_units;1hop miners native units;miner_flows;1hop miners unt
+miner_flows;supply_miners_usd;miners usd;miner_flows;miners usd
+miner_flows;supply_miners_native_units;miners native units;miner_flows;miners unt
+supply_distribution;supply_in_addresses_balance_greater_0_001_native_units;in addresses balance greater 0 001 native units;supply_distribution;in Add Bal > 0 001 unt
+supply_distribution;supply_in_addresses_balance_greater_0_01_native_units;in addresses balance greater 0 01 native units;supply_distribution;in Add Bal > 0 01 unt
+supply_distribution;supply_in_addresses_balance_greater_0_1_native_units;in addresses balance greater 0 1 native units;supply_distribution;in Add Bal > 0 1 unt
+supply_distribution;supply_in_addresses_balance_greater_1_usd;in addresses balance greater 1 usd;supply_distribution;in Add Bal > 1 usd
+supply_distribution;supply_in_addresses_balance_greater_10_usd;in addresses balance greater 10 usd;supply_distribution;in Add Bal > 10 usd
+supply_distribution;supply_in_addresses_balance_greater_100_usd;in addresses balance greater 100 usd;supply_distribution;in Add Bal > 100 usd
+supply_distribution;supply_in_addresses_balance_greater_100k_usd;in addresses balance greater 100k usd;supply_distribution;in Add Bal > 100k usd
+supply_distribution;supply_in_addresses_balance_greater_100k_native_units;in addresses balance greater 100k native units;supply_distribution;in Add Bal > 100k unt
+supply_distribution;supply_in_addresses_balance_greater_100_native_units;in addresses balance greater 100 native units;supply_distribution;in Add Bal > 100 unt
+supply_distribution;supply_in_addresses_balance_greater_10k_usd;in addresses balance greater 10k usd;supply_distribution;in Add Bal > 10k usd
+supply_distribution;supply_in_addresses_balance_greater_10k_native_units;in addresses balance greater 10k native units;supply_distribution;in Add Bal > 10k unt
+supply_distribution;supply_in_addresses_balance_greater_10m_usd;in addresses balance greater 10m usd;supply_distribution;in Add Bal > 10m usd
+supply_distribution;supply_in_addresses_balance_greater_10_native_units;in addresses balance greater 10 native units;supply_distribution;in Add Bal > 10 unt
+supply_distribution;supply_in_addresses_balance_greater_1k_usd;in addresses balance greater 1k usd;supply_distribution;in Add Bal > 1k usd
+supply_distribution;supply_in_addresses_balance_greater_1k_native_units;in addresses balance greater 1k native units;supply_distribution;in Add Bal > 1k unt
+supply_distribution;supply_in_addresses_balance_greater_1m_usd;in addresses balance greater 1m usd;supply_distribution;in Add Bal > 1m usd
+supply_distribution;supply_in_addresses_balance_greater_1m_native_units;in addresses balance greater 1m native units;supply_distribution;in Add Bal > 1m unt
+supply_distribution;supply_in_addresses_balance_greater_1_native_units;in addresses balance greater 1 native units;supply_distribution;in Add Bal > 1 unt
+supply_distribution;supply_in_top_100_addresses;in top 100 addresses;supply_distribution;in top 100 Add
+supply_distribution;supply_in_top_10_percent_addresses;in top 10 percent addresses;supply_distribution;in top 10 % Add
+supply_distribution;supply_in_top_1_percent_addresses;in top 1 percent addresses;supply_distribution;in top 1 % Add
+supply_distribution;supply_in_utxo_in_loss;in utxo in loss;supply_distribution;in utxo in loss
+supply_distribution;supply_in_utxo_in_profit;in utxo in profit;supply_distribution;in utxo in profit
+supply_activity;supply_active_10y;supply active 10y;supply_distribution;supply active 10y
+supply_activity;supply_active_180d;supply active 180d;supply_distribution;supply active 180d
+supply_activity;supply_active_1d;supply active 1d;supply_distribution;supply active 1d
+supply_activity;supply_active_1y;supply active 1y;supply_distribution;supply active 1y
+supply_activity;supply_active_1y_percent;supply active 1y percent;supply_distribution;supply active 1y %
+supply_activity;supply_active_2y;supply active 2y;supply_distribution;supply active 2y
+supply_activity;supply_active_30d;supply active 30d;supply_distribution;supply active 30d
+supply_activity;supply_active_3y;supply active 3y;supply_distribution;supply active 3y
+supply_activity;supply_active_4y;supply active 4y;supply_distribution;supply active 4y
+supply_activity;supply_active_5y;supply active 5y;supply_distribution;supply active 5y
+supply_activity;supply_active_7d;supply active 7d;supply_distribution;supply active 7d
+supply_activity;supply_active_90d;supply active 90d;supply_distribution;supply active 90d
+supply_activity;supply_active_ever;supply active ever;supply_distribution;supply active ever
+supply_activity;outstanding;outstanding;supply_distribution;outstanding
+supply_activity;supply_revived_1y;supply revived 1y;supply_distribution;supply revived 1y
+supply_activity;supply_revived_2y;supply revived 2y;supply_distribution;supply revived 2y
+supply_activity;supply_revived_30d;supply revived 30d;supply_distribution;supply revived 30d
+supply_activity;supply_revived_3y;supply revived 3y;supply_distribution;supply revived 3y
+supply_activity;supply_revived_4y;supply revived 4y;supply_distribution;supply revived 4y
+supply_activity;supply_revived_5y;supply revived 5y;supply_distribution;supply revived 5y
+supply_activity;supply_revived_7d;supply revived 7d;supply_distribution;supply revived 7d
+supply_activity;supply_revived_90d;supply revived 90d;supply_distribution;supply revived 90d

@@ -1,0 +1,394 @@
+@import url(../cryptoSymbol/cryptocoins.css);
+.navbar-custom {
+    padding: 1.0rem 1.8rem;
+}
+
+.tradingView {
+    height: 8vh;
+}
+.navbar-nav-custom {
+    padding: 0rem 1.0rem;
+}
+
+div.card-custom {
+    width: 90%; /* Ancho por defecto para pantallas muy pequeñas */
+    margin-top: 150px;
+   
+}
+
+.intro {
+    background: url('../img/background1.png') no-repeat center center;
+    background-size: cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    color: white; 
+    margin-top: 18px;
+}
+
+.about-section{
+    background: url('../img/background-section.png') no-repeat center center;
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    color: white; 
+    margin-top: 18px;
+}
+
+/* Aumenta el grosor de la letra para h1 y h2 */
+.intro h1,
+.intro h2 {
+    font-weight: bold; /* o puedes usar un valor numérico como 700 */
+}
+
+.section {
+    margin-top: 90px;  /* Espacio en la parte superior */
+    margin-bottom: 50px;  /* Espacio en la parte inferior */
+    height: 60vh;
+}
+
+.section img {
+    height: 50vh;
+    width: auto;  /* para mantener la proporción original de la imagen */
+    object-fit: cover;  /* para que la imagen cubra el contenedor sin deformarse */
+    border-radius: 20px;
+}
+
+.section .left-img-fluid{
+    box-shadow: 
+        -5px 5px 10px rgb(201, 200, 200),
+        -10px 10px 20px rgba(246, 243, 243, 0.1),
+        -15px 15px 30px rgba(7, 7, 215, 0.1),
+        -20px 20px 40px rgba(0, 0, 7, 0.1),
+        -25px 25px 50px rgba(242, 241, 241, 0.15);
+    transform: perspective(1000px) rotateY(-10deg);
+    transition: transform 0.3s ease; 
+}
+
+.section .right-img-fluid{
+    box-shadow: 
+        5px 5px 10px rgb(201, 200, 200),
+        10px 10px 20px rgba(246, 243, 243, 0.1),
+        15px 15px 30px rgba(7, 7, 215, 0.1),
+        20px 20px 40px rgba(0, 0, 7, 0.1),
+        25px 25px 50px rgba(242, 241, 241, 0.15);
+    transform: perspective(1000px) rotateY(10deg);
+    transition: transform 0.3s ease; 
+}
+
+
+.analysis-section {
+    margin-top: 90px;  /* Espacio en la parte superior */
+    margin-bottom: 50px;  /* Espacio en la parte inferior */
+    height: 60vh;
+}
+
+.analysis-section img {
+    height: 50vh;
+    width: auto;  /* para mantener la proporción original de la imagen */
+    object-fit: cover;  /* para que la imagen cubra el contenedor sin deformarse */
+    border-radius: 20px;
+}
+.monitoring-section{
+    margin-top: 90px;  /* Espacio en la parte superior */
+    margin-bottom: 50px;  /* Espacio en la parte inferior */
+    height: 60vh;
+}
+
+.monitoring-section img{
+    height: 50vh;
+    width: auto;/* para mantener la proporción original de la imagen */
+    object-fit: cover;  /* para que la imagen cubra el contenedor sin deformarse */
+    border-radius: 20px;
+}
+
+
+.regulation-section img {
+    height: 50vh;
+    width: auto;/* para mantener la proporción original de la imagen */
+    object-fit: cover;  /* para que la imagen cubra el contenedor sin deformarse */
+    border-radius: 20px;
+    
+}
+
+.education-section{
+    margin-top: 90px;  /* Espacio en la parte superior */
+    margin-bottom: 50px;  /* Espacio en la parte inferior */
+    height: 60vh;
+}
+
+.education-section img{
+    height: 50vh;
+    width: auto;/* para mantener la proporción original de la imagen */
+    object-fit: cover;  /* para que la imagen cubra el contenedor sin deformarse */
+    border-radius: 20px;
+}
+
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.education-section .img-fluid, .regulation-section .img-fluid  {
+    box-shadow: 
+        5px 5px 10px rgb(201, 200, 200),
+        10px 10px 20px rgba(246, 243, 243, 0.1),
+        15px 15px 30px rgba(7, 7, 215, 0.1),
+        20px 20px 40px rgba(0, 0, 7, 0.1),
+        25px 25px 50px rgba(242, 241, 241, 0.15);
+    transform: perspective(1000px) rotateY(10deg);
+    transition: transform 0.3s ease; 
+}
+
+.monitoring-section .img-fluid, .analysis-section .img-fluid  {
+    box-shadow: 
+        -5px 5px 10px rgb(201, 200, 200),
+        -10px 10px 20px rgba(246, 243, 243, 0.1),
+        -15px 15px 30px rgba(7, 7, 215, 0.1),
+        -20px 20px 40px rgba(0, 0, 7, 0.1),
+        -25px 25px 50px rgba(242, 241, 241, 0.15);
+    transform: perspective(1000px) rotateY(-10deg);
+    transition: transform 0.3s ease; 
+}
+
+
+footer h4 {
+    color: rgb(19, 19, 19);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+footer p, footer li, footer a {
+    color: rgb(75, 74, 74);
+    text-align: justify;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.full-width-hr {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+}
+
+.button-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+   
+    background-color: #48bb78;
+    outline: 3px #48bb78 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+  .button-custom .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+  }
+  
+  .button-custom svg path {
+    transition: 400ms;
+  }
+  
+  .button-custom:hover {
+    background-color: transparent;
+  }
+  
+  .button-custom:hover .text {
+    color: #48bb78;
+  }
+  
+  .button-custom:hover svg path {
+    fill: #48bb78;
+  }
+
+  .cssbuttons-io-button {
+    background: #48bb78;
+    color: white;
+    font-family: inherit;
+    padding: 0.2em;
+    padding-left: 0.9em;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 0.7em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.2em -0.5em #48bb78;
+    overflow: hidden;
+    position: relative;
+    height: 2.2em;
+    padding-right: 2.8em;
+    cursor: pointer;
+    left: 55px
+}
+
+.cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 0.8em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.8em;
+    width: 1.8em;
+    border-radius: 0.6em;
+    box-shadow: 0.08em 0.08em 0.5em 0.15em #48bb78;
+    right: 0.25em;
+    transition: all 0.3s;
+}
+
+  
+  .cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+  }
+  
+  .cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #7b52b9;
+  }
+  
+  .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+  }
+  
+  .cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+  }
+  
+
+@media (min-width: 768px) { /* A partir de pantallas medianas (md) y superiores */
+    div.card-custom {
+        width: 30%;
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cssbuttons-io-button > div.icon {
+        display: block;
+    }
+
+    .cssbuttons-io-button > :not(.icon) {
+        display: none;
+    }
+
+    .cssbuttons-io-button {
+        display: none;
+
+    }
+}
+
+
+
+.full-width-section {
+    padding-top: 1.5em;
+    padding-left: 1.5em;
+    height: 750px!important; /* Altura fija de 560px */
+ 
+}
+
+.options-graph{
+    min-height: 10vh; /* Altura mínima */
+    padding-bottom: 1em;
+}
+
+@media (max-width: 768px) {
+    .full-width-section {
+        height: auto; /* Altura auto para dispositivos más pequeños */
+    }
+}
+
+.graph-section {
+    padding-top: 0;
+    width: 97%;
+    border: 0.1em solid rgb(149, 148, 148) !important;
+
+   
+}
+
+@media (max-width: 600px) {
+    .analysis-section, .monitoring-section, .regulation-section, .education-section, .section {
+        /* Ajustes para pantallas pequeñas aquí, por ejemplo: */
+        margin-top: 45px;  /* Reduciendo el espacio en la parte superior */
+        margin-bottom: 25px;  /* Reduciendo el espacio en la parte inferior */
+        height: auto;  /* Altura automática para adaptarse al contenido */
+    }
+
+    .analysis-section img, .monitoring-section img, .regulation-section img, .education-section img {
+        height: auto;  /* Altura automática para adaptarse a la pantalla */
+        width: 100%;  /* Ancho completo para ocupar el contenedor */
+        object-fit: scale-down;  /* Ajuste del objeto para escalar la imagen proporcionalmente */
+    }
+}
+
+.modal-dialog-centered {
+    max-width: 18rem!important; /* Ajusta esto según el tamaño deseado del modal */
+    margin: 1.75rem auto;
+}
+
+
+
+.modal-spinner .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    height: auto; /* Ajusta esto según tus necesidades */
+  }
+
+  .modal-spinner .spinner-border {
+    width: 8rem;
+    height: 8rem;
+   
+    border-width: 10px; /* Ajusta el grosor aquí */
+    color: #f5bb0e !important; /* Cambia el color según tus preferencias */
+  }
+
+
+
+  .calendly-inline-widget {
+    background: linear-gradient(to right, #e4e4e4, #e0e0e0);
+    width: 100%;
+    height: 700px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

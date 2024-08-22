@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Raleway:wght@500;800&display=swap');
+
+/* Cambiar el fondo y el color del texto del encabezado */
+.modal-header {
+    background-color: #ffc107; /* Color de fondo */
+    color: rgb(242, 239, 239); /* Color del texto */
+    height: 40px;
+}
+
+/* Cambiar el fondo del cuerpo del modal */
+.modal-body {
+    background-color: #f3f3f3;
+}
+
+/* Cambiar el estilo de los botones */
+.modal-footer .btn-secondary {
+    background-color: #6c757d; /* Color de fondo */
+    /* otras propiedades */
+}
+
+.modal-footer .btn-primary {
+    background-color: #161823; /* Color de fondo */
+    /* otras propiedades */
+}
+
+.modal-title {
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 18px; /* Cambiar tamaño del texto */
+    font-weight: 300; /* Grosor de la fuente, 300 es más delgado que el normal */
+    text-align: center; /* Centrar el título */
+    width: 100%; /* Ocupar el ancho completo para permitir la alineación al centro */
+    margin: 0 auto; /* Alineación horizontal automática */
+    
+}
+
+.modal-body {
+    font-family: 'Raleway', sans-serif; /* Cambiar la tipografía */
+}
+
+.modal-dialog {
+    max-width: 900px; /* Cambiar el ancho máximo del modal */
+    
+    /* Para cambiar la posición, puedes usar margin o transform */
+}
+
+.modal-content {
+    
+    box-shadow: 0 5px 15px rgba(0,0,0,.5); /* Sombra */
+}
+
+.modal-footer .btn {
+    border-radius: 2px; /* Bordes redondeados */
+    /* otros estilos */
+}
+
+.pagination-container {
+    justify-content: left;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    margin: 0 3px;
+    padding: 5px 8px;
+    border-radius: 3px;
+    border: 1px solid #2e2e2e;
+    background-color: white;
+    color: #2e2e2e;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-button:hover, .pagination-button.active {
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.pagination-button.disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Estilo para el contenedor del checkbox */
+.form-check {
+    font-family: 'Raleway', sans-serif; /* Ejemplo de fuente */
+    margin-bottom: 5px;
+}
+
+/* Estilo para la casilla del checkbox */
+.form-check-input {
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    appearance: none; /* Deshabilita el estilo por defecto */
+    background-color: white; /* Fondo del checkbox */
+    border: 1px solid #333; /* Color de borde del checkbox */
+}
+
+/* Estilo cuando el checkbox está marcado */
+.form-check-input:checked {
+    background-color: #333; /* Fondo del checkbox cuando está marcado */
+    border-color: #333; /* Borde del checkbox cuando está marcado */
+}
+
+/* Estilo para la etiqueta del checkbox */
+.form-check-label {
+    vertical-align: middle;
+    font-size: 17px;
+}
+
+/* Para agregar un ícono o color dentro del checkbox cuando está marcado */
+.form-check-input:checked::after {
+   
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(171, 169, 169); /* Color del ícono o marca dentro del checkbox */
+}
+
+.nav-link {
+    color: #505050; /* Color del texto de los enlaces */
+    padding: 5px; /* Espaciado */
+  
+    /* Más estilos si es necesario */
+}
+
+.nav-link:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.nav-link.active {
+    font-weight: bold; /* Texto en negrita para el enlace activo */
+    color: #000000; /* Color del texto para el enlace activo */
+}
+ /* Estilo general para el navbar vertical */
+ .nav.flex-column .nav-link {
+    font-family: 'Segoe UI', sans-serif; /* Cambia a la fuente deseada */
+    color: #333; /* Color del texto */
+    margin: 5px 0; /* Espacio entre enlaces */
+}
+
+/* Estilo para eliminar el borde azul en el foco */
+.accordion-button:focus {
+    box-shadow: none; /* Elimina el borde de sombra que aparece al enfocar */
+}
+
+.accordion-item {
+    padding: 0; /* Elimina el padding completamente */
+    /* O especifica un valor más pequeño, por ejemplo, padding: 5px; */
+}
+  .accordion-button {
+        padding: 0.5rem 1rem; /* Reduce el padding del botón del acordeón */
+        /* Ajusta los valores según tus preferencias */
+    }
+/* Estilo para eliminar el color de fondo cuando el acordeón está abierto */
+.accordion-button:not(.collapsed) {
+    background-color: transparent; /* Hace que el fondo sea transparente */
+    color: #333; /* Puedes ajustar el color del texto si es necesario */
+}
+/* Estilo para los encabezados de los elementos del acordeón */
+.accordion-header .accordion-button {
+    font-weight: bold; /* Texto en negrita */
+    color: #333; /* Color del texto */
+}
+
+/* Estilo para el acordeón colapsado */
+.accordion-button.collapsed {
+    color: #333; /* Color del texto cuando está colapsado */
+}
+
+/* Estilo para el cuerpo del acordeón */
+.accordion-body {
+    font-family: 'Arial', sans-serif; /* Cambia a la fuente deseada */
+    padding-top: 0;
+}
+
+/* Estilo para los elementos del submenú */
+.accordion-body .dropdown-item {
+    color: #333; /* Color del texto */
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+/* Cambia el color de fondo al pasar el mouse sobre los elementos del submenú */
+.accordion-body .dropdown-item:hover {
+    background-color: #282829; /* Color de fondo al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+}
+
+ /* Estilos para pantallas pequeñas */
+ @media (max-width: 600px) {
+    .pagination-button {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+}

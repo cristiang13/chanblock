@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{%static 'img/logochanblock.png'%}">
+
+    <title>Chanblock</title>
+
+     <!-- Data Table-->
+	<link rel="stylesheet"  href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <!-- Style-->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/chanblock.css' %}">
+    <link rel="stylesheet" href="{%static 'css/font.css' %}">
+    <link rel="stylesheet" href="{%static 'css/card.css' %}">
+    <link rel="stylesheet" href="{%static 'css/table.css' %}">
+    <link rel="stylesheet" href="{%static 'cryptoSymbol/cryptocoins.css' %}">
+    
+   
+	<!-- component responsive Data Table -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.4/css/fixedHeader.bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css">
+
+    <!-- icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
+
+    <!-- AOS CSS Library -->
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg  navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{%static 'img/logochanblock.png'%}" alt="Logo" width="30" height="30"
+                    class="d-inline-block align-top">
+                Chanblock
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active " aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+              
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Indicators</a>
+                        <ul class="dropdown-menu">
+                            <li><a id="indicator"class="dropdown-item" href="{% url 'indicators'%}">Indicator Table</a></li>
+                            <li><a id="chart-spinner"class="dropdown-item" href="{% url 'graph_default'%}">Indicator Chart</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+					    <a class="nav-link active" aria-current="page" href="{% url 'checkFees'%}">GasTracker</a>
+				    </li>
+                  
+
+                </ul>
+
+         
+            </div>
+        </div>
+    </nav>
+
+
+    <div>
+
+        {% block content %}{% endblock content %}
+         <div class="modal modal-spinner" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content" >
+                
+                <div class="modal-body">
+                    <br>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                      </div>
+                      <br>
+                    <p>Cargando datos...</p> 
+                    
+                </div>
+              </div>
+            </div>
+        </div>
+        
+    </div>
+    <br>
+    <br>
+    <br>
+
+      <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var link = document.querySelector('#vara');
+      var indicator = document.querySelector('#indicator');
+      var chartInd = document.querySelector('#chart-spinner');
+      if(link) {
+            link.addEventListener("click", function() {
+            $('#exampleModalCenter').modal('show');
+        });
+      }
+      if (indicator) {
+            indicator.addEventListener("click", function() {
+            $('#exampleModalCenter').modal('show');
+        });
+        }
+        if (chartInd) {
+            chartInd.addEventListener("click", function() {
+            $('#exampleModalCenter').modal('show');
+            });
+        }
+    });
+  </script>
+
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	<script src="{% static  'js/chanblock.js'%}"></script> 
+
+   
+
+    <script src="{% static  'js/bootstrap.bundle.min.js'%}"></script>
+<!-- Add AOS JS Library -->
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+    
+    <!-- This is data table -->
+	<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <!-- component responsive Data Table -->
+	<script src="https://cdn.datatables.net/fixedheader/3.2.4/js/dataTables.fixedHeader.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap.min.js"></script>
+
+</body>
+
+</html>

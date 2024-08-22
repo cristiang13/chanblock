@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    /* Reduce el tamaño de fuente y padding de las celdas en pantallas pequeñas */
+    @media (max-width: 767px) {
+      table td, table th {
+        font-size: 12px;
+        padding: 5px;
+      }
+    }
+</style>
+	
+<section class="py-lg-80 py-30 overflow-xh">
+		<div class="container">
+      <div class="row">
+        <div class= "col-1"></div>
+        <div class= "col-10">
+          <h3 class="box-title container">Transaction Mempool Details with gas used greater than 100.000</h3>
+          <p class="lh-2">GasTracker Pro is a bot specialized in detecting pending transactions in the Ethereum network that offer a very high gas fee, which is a warning sign that the transaction may be malicious or that someone wants to reverse a transaction.Our bot uses advanced algorithms to monitor the Ethereum mempool and detect suspicious patterns, notifying you immediately so you can take preventive measures to protect your funds.</p>
+          <p class="lh-2">Protecting your assets in Ethereum has never been easier. Subscribe to GasTracker Pro today and enjoy the peace of mind of knowing that we are constantly monitoring the Ethereum network for suspicious transactions.</p>
+          <a href="{% url 'findFees' %}"   class="btn btn-info" >GasTracker</a>
+          <br><br>
+          {% if msj %}
+          <p class="fs-3">{{msj}}</p>
+          {% endif %}
+         
+              {% for txn in txns_reciept %}
+              <div class="card" style="padding-left: 20px;">
+                <div class="card-body">
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">Transaction Hash:</h5></div>
+                    <div class="col-12 col-sm-10"><a href="https://etherscan.io/tx/{{txn.hash}}" target="_blank"><h5>{{txn.hash}}</h5></a></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">Block Number:</h5></div>
+                    <div class="col-12 col-sm-10"><h5>{{txn.blockNumber}}</h5></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">From:</h5></div>
+                    <div class="col-12 col-sm-8"><a>{{txn.from}}</a></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">To:</h5></div>
+                    <div class="col-12 col-sm-8"><a>{{txn.to}}</a></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">Transaction Fee:</h5></div>
+                    <div class="col-12 col-sm-8"><a>{{txn.txn_fee_eth}} Eth</a></div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">Gas Price:</h5></div>
+                    <div class="col-12 col-sm-8"><h5>{{txn.effectiveGasPrice}} Gwei <h5 class="text-muted">({{txn.effectiveGasPrice_eth}})Eth</h5></h5></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">Gas Used:</h5></div>
+                    <div class="col-12 col-sm-8"><h5>{{txn.gasUsed}} Gwei <h5 class="text-muted">({{txn.gasUsed_eth}})Eth</h5></h5></div>
+                  </div>
+                 
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">Topics:</h5></div>
+                    <div class="col-12 col-sm-8">
+                      {% with topics=txn.topics %}
+                        {% if topics|length > 0 %}
+                          {% for token in topics %}
+                            <div class="row">
+                              <div class="col-12 col-sm-2"><samp>Address:</samp></div>
+                              <div class="col-12 col-sm-10"><a href="https://etherscan.io/address/{{token.address}}" target="_blank">{{ token.address }}</a></div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-sm-2"><samp>Name:</samp></div>
+                              <div class="col-12 col-sm-10">{{token.name}}</div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-sm-2"><samp>Data:</samp></div>
+                              <div class="col-12 col-sm-10">{{token.data}} {{token.symbol}}</div>
+                            </div>
+                            <br>
+                          {% endfor %}
+                          {% comment %} <h5>{{ topics }}</h5> {% endcomment %}
+                        {% endif %}
+                      {% endwith %}
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12 col-sm-2"><h5 class="text-muted">Type:</h5></div>
+                    <div class="col-12 col-sm-8"><h5>{{txn.type}}</h5></div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+              
+              {% endfor %}
+       
+
+        </div>
+
+        <div class= "col-1"></div>
+
+
+      </div>
+      
+                       
+                      
+          
+			
+		</div>
+</section>
+
+<script>
+  // Get the "Check Fees" button
+  const checkFeesBtn = document.querySelector('.btn-info');
+
+  // Add an event listener to the button
+  checkFeesBtn.addEventListener('click', () => {
+    // Show a spinner
+    const spinner = document.createElement('span');
+    spinner.classList.add('spinner-border', 'spinner-border-sm', 'me-2');
+    checkFeesBtn.innerHTML = '';
+    checkFeesBtn.appendChild(spinner);
+
+    // Show a message indicating that the request may take some time to complete
+    const message = document.createElement('span');
+    message.innerText = 'The blockchain is verifying your request. This process may take a few seconds, thanks for waiting...';
+    checkFeesBtn.appendChild(message);
+  });
+</script>
+
+
+	
+{% endblock %}

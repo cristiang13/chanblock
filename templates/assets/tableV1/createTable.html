@@ -1,0 +1,431 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .v-line{
+        border-right:solid #fafbfd;
+        min-height:60vh;
+        left: 50%;
+      
+       }
+</style>
+<section class="py-lg-80 py-30 overflow-xh">
+<div class="container h-p100">
+    <div class="row align-items-center justify-content-md-center h-p100">			
+        <div class="col-12">
+            <div class="row justify-content-center g-0">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <h1 align="center" class="box-title container">Choice Metrics</h1>
+                   
+                        <div class="p-25" style="min-height: 60vh; background-color:#ffffff">
+                            <form  action="showTable" method="post"> 
+                                {% csrf_token %}
+                                <div class="accordion" id="accordionPanelsStayOpenExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                                <h5>Market Data</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                           
+                                                            {%for metric in list_metrics%}
+                                                                {%if metric.0 == 'market_data' %}
+                                                                <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                                <label class="hover-warning" for="{{metric.1}}" >
+                                                                    <h5>{{metric.2}}</h5> 
+                                                                </label>&nbsp;
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                </svg><br><br>
+                                                                {%endif%}
+                                                            {%endfor%}
+                                                    
+                                                
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                                <h5>Market Cap</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                            <div class="accordion-body"> 
+                                                {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'marketcap' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                {%endfor%}
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingThirteen">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThirteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseThirteen">
+                                                <h5>On chain data </h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseThirteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'on_chain_data' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="ocd{{metric.1}}">                                            
+                                                    <label  class="hover-warning"for="ocd{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}     
+                                                    
+                                                
+                                                </div>    
+                                        </div>
+                                    </div>                                   
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                                <h5>Supply</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'supply' %}
+                                                        <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                        <label class="hover-warning" for="{{metric.1}}" >
+                                                            <h5>{{metric.2}}</h5> 
+                                                        </label>&nbsp;
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                        </svg><br><br>
+                                                        {%endif%}
+                                                    {%endfor%}  
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                                                <h5>All time high low
+                                                </h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                            
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'all_time_high' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}       
+                                                    
+                                                
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                                                <h5>Token sale stats</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'token_sale_stats' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}        
+                                                    
+                                                
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+                                                <h5>Mining stats</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body"> 
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'mining_stats' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="ms{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="ms{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}   
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">
+                                                <h5>Blockchain stats 24 hours</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'blockchain_stats_24_hours' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}  
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingEight">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="false" aria-controls="panelsStayOpen-collapseEight">
+                                                <h5>Developer activity</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'developer_activity' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}        
+                                                    
+                                                
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingNine">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseNine" aria-expanded="false" aria-controls="panelsStayOpen-collapseNine">
+                                                <h5>Roi data </h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseNine" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'roi_data' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}  
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingTeen">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTeen" aria-expanded="false" aria-controls="panelsStayOpen-collapseTeen">
+                                                <h5>Roi by year </h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseTeen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'roi_by_year' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}  
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingTwelve">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwelve" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwelve">
+                                                <h5>Risk metrics </h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'risk_metrics' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}  
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingFourteen">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFourteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseFourteen">
+                                                <h5>Exchange flows</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseFourteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'exchange_flows' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}  
+                                                    
+                                                
+                                                </div>    
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingFiveteen">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFiveteen" aria-expanded="false" aria-controls="panelsStayOpen-collapseFiveteen">
+                                                <h5>Miner flows</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseFiveteen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">                                                                      
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'miner_flows' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}     
+                                                    
+                                                
+                                                </div>    
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="panelsStayOpen-headingSeventeen">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeventeen" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeventeen">
+                                                <h5>Supply distribution</h5>
+                                            </button>
+                                        </h2>
+                                        <div id="panelsStayOpen-collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                                <div class="accordion-body">          
+                                                    {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'supply_distribution' %}
+                                                    <input name={{metric.0}}  type="checkbox" value={{metric.1}} id="{{metric.1}}">                                            
+                                                    <label class="hover-warning" for="{{metric.1}}" >
+                                                        <h5>{{metric.2}}</h5> 
+                                                    </label>&nbsp;
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                    </svg><br><br>
+                                                    {%endif%}
+                                                    {%endfor%}  
+                                                
+                                                </div>    
+                                        </div>
+                                    </div>
+
+                                </div>
+                              <br>
+                              <button type="submit" class="btn btn-primary">Show table</button>&nbsp&nbsp<a href="{% url 'indicators' %}"  class="btn btn-light" > Go back</a>
+                            </form>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+                    
+    </div>
+</div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $( "#markedata" ).click(function() {
+        //alert('hola');
+        //$( "#metrics" ).html("<li class='list-group-item'><input class='form-check-input' type='checkbox' value='k' id='flexCheckDefault'>"
+        //"<label class='form-check-label' for='flexCheckDefault'>Default checkbo</label></li>"); 
+        $.ajax({
+            type: "get",
+            url: 'markeData',
+            success: function(data)
+            {            
+                $('#metrics').html(data)                                                                            
+            }
+        });     
+      });
+      $( "#markeCap" ).click(function() {
+       
+       
+        $.ajax({
+            type: "get",
+            url: 'markeCap',
+            success: function(data)
+            {            
+                $('#metrics').html(data)                                                                            
+            }
+        });     
+      });
+</script>
+{%endblock%}

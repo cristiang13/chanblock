@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="py-lg-80 py-30 overflow-xh">
+
+  <div class="container">
+    <div class="row justify-content-center">
+      {% for value in listTable %}
+           
+						<div class="col-md-8 col-12">
+              <div class="box-body" style="background-color: #ffffff ">
+                {% if value.title %}
+                <h3><a href="#">{{value.title}}</a></h3>
+
+                {% else %}
+                <h3><a href="#">Default title.</a></h3>
+                {% endif %}
+               
+                <div class="d-flex mb-10">
+                  <div>
+                    <i class="fa fa-calendar me-5"></i> {{value.date}} 
+                  </div>
+                </div>
+                 <h3>Metrics</h3>
+                  <p>
+                    {% for metric in value.metrics %}
+                    {% if metric == 'market_data'%} <strong>Market Data:</strong> &nbsp; {% for value in value.metrics.market_data %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'marketcap'%} <strong>Market Cap:</strong> &nbsp;{% for value in value.metrics.marketcap %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'on_chain_data'%} <strong>On chain data:</strong> &nbsp;{% for value in value.metrics.on_chain_data %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'supply'%} <strong>Supply:</strong> &nbsp;{% for value in value.metrics.supply %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'all_time_high'%} <strong>All time high:</strong> &nbsp;{% for value in value.metrics.all_time_high %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'token_sale_stats'%} <strong>Token sale stats:</strong> &nbsp;{% for value in value.metrics.token_sale_stats %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'mining_stats'%} <strong>Mining stats:</strong> &nbsp;{% for value in value.metrics.mining_stats %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'blockchain_stats_24_hours'%} <strong>Blockchain stats 24h:</strong> &nbsp;{% for value in value.metrics.blockchain_stats_24_hours %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'developer_activity'%} <strong>Developer activity:</strong> &nbsp;{% for value in value.metrics.developer_activity %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'roi_data'%} <strong>Roi data:</strong> &nbsp;{% for value in value.metrics.roi_data %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'roi_by_year'%} <strong>Roi by year:</strong> &nbsp;{% for value in value.metrics.roi_by_year %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'risk_metrics'%} <strong>Risk metrics:</strong> &nbsp;{% for value in value.metrics.risk_metrics %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric ==  'exchange_flows'%} <strong>Exchange flows:</strong> &nbsp;{% for value in value.metrics.exchange_flows %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'miner_flows'%} <strong>Miner flows:</strong> &nbsp;{% for value in value.metrics.miner_flows %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+                    {% if metric == 'supply_distribution'%} <strong>Supply distribution:</strong> &nbsp;{% for value in value.metrics.supply_distribution %}{{value}} &nbsp;{% endfor %}<br>{% endif %}
+
+                    
+                    {% endfor %}
+                   
+                  </p>
+                 
+                  <div class="flexbox align-items-center mt-4">
+                    <div class="row">
+                      <div class="col">
+                        <a class="btn btn-sm btn-warning" href="/asset/detailTable/{{value.id}}">Show </a>
+                      </div>
+                      <div class="col">
+                        <a class="btn btn-sm btn-warning" href="/asset/deleteTable/{{value.id}}/{{user.id}}">Delete </a>
+                      </div>
+                    </div>
+                  </div>
+             
+              </div>
+							<br>
+            </div>
+            
+      {% endfor %}
+			
+    </div>
+  </div>
+
+</section>
+
+    
+
+
+{%endblock%}

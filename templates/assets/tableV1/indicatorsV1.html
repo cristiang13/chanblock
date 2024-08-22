@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong class="text-dark">{{ message }}</strong>
+</div>
+{% endfor %}
+{% endif %}
+
+
+<style type="text/css"> 
+  thead tr  { 
+      background-color:#fafbfd  
+  }
+
+</style>
+
+
+<section class="py-lg-80 py-30 overflow-xh">
+
+    <div class="row justify-content-center">
+              <div class="row">
+                  <div class="col-12 ">                 
+                    <h1 align="center" class="box-title container">Crypto Market Indicators </h1>
+                    <h4 class="box-title"></h4> 
+                      <div class="box">
+                            <div class="box-header with-border">
+                               
+                              <div  class="box-title"> 
+                                <a class="hover-warning" href="{% url 'createTable'%}" style=" font: 150% sans-serif; font-weight: 700;">Create table</a>  
+                                
+                              </div>
+                             
+                            </div>
+
+                            <div class="box-body">
+                                
+                                  <table id="indicators" class="table" style="width:100%">
+                                          <thead>
+                                            <tr role="row">
+                                            <th class="text-right"><strong>Rank</strong> </th>
+                                            <th class="text-right"><strong>Crypto</strong> </th>
+                                            <th class="text-right"><strong>Price</strong> </th>
+                                            <th class="text-right"><strong>MarketCap(M)</strong> </th>
+                                            <th class="text-right"><strong>Breakeven</strong></th>
+                                            <th class="text-right"><strong>Inflation</strong></th>
+                                            <th class="text-right"><strong>ATH</strong> </th>
+                                            <th class="text-right"><strong>ATH%</strong> </th>                         
+                                            <th class="text-right"><strong>Price Low </strong></th> 
+                                            <th class="text-right"><strong>Change% (24H)</strong> </th>                                          
+                                            <th class="text-right"><strong>Since low%</strong> </th>
+                                            
+                                            {% comment %} <th class="text-right">Change% (7D)</th> {% endcomment %}
+                                         
+                                            
+                                           
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            {% for asset in assets %}
+                                          
+                                              <tr>
+                                                <td>{{asset.metrics.marketcap.rank}}</td>
+                                                <td>
+                                                   <a href="coin_detail/{{asset.symbol}}" class="hover-warning" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                   data-bs-custom-class="custom-tooltip" data-bs-title="Profile"><strong>{{asset.name}}</strong></a> 
+                                                </td>
+                                                  <td>${{asset.metrics.market_data.price_usd|floatformat:"3g"}}</td>
+                                                  <td>${{asset.metrics.marketcap.current_marketcap_usd|floatformat:"2g"}}</td>
+                                                  <td>{{asset.metrics.all_time_high.breakeven_multiple|floatformat:"2g"}}x</td>
+                                                  {% if asset.metrics.supply.annual_inflation_percent%}
+                                                  <td>{{asset.metrics.supply.annual_inflation_percent|floatformat:"2g"}}%</td>
+                                                  {%else %}
+                                                  <td>-</td>        
+                                                  {%endif%}                                                  
+                                                  <td>${{asset.metrics.all_time_high.price|floatformat:"2g"}}</td>                                                                                                                                                 
+                                                  <td>{{asset.metrics.all_time_high.percent_down|floatformat:"1g"}}%</td>                                                      
+                                                  <td>${{asset.metrics.cycle_low.price|floatformat:"2g"}}</td>
+                                                  
+                                                 
+                                                  {%if asset.metrics.market_data.percent_change_usd_last_24_hours > 0 %}                                                                       
+                                                  <td class="no-wrap text-right" style="color:#4293FF">&nbsp<i class="fa fa-chevron-up"></i>&nbsp {{asset.metrics.market_data.percent_change_usd_last_24_hours|floatformat:"2g"}}</td>
+                                                  {% else %}            
+                                                  <td class="no-wrap text-right" style="color:#FF0000">&nbsp<i class="fa fa-chevron-down"></i> &nbsp  {{asset.metrics.market_data.percent_change_usd_last_24_hours|floatformat:"2g"}}</td>
+                                                  {%endif%}
+                                                  <td>{{asset.metrics.cycle_low.percent_up|floatformat:"2g"}}%</td>
+                                              </tr>
+                                            {% endfor %} 
+
+                                          </tbody>
+                                    </table>
+                                
+                            </div>
+                          <!-- /.box-body -->
+                        </div>
+                  </div>
+              </div>
+    
+    </div>
+  
+
+  
+</section>
+	
+  
+{% endblock %}

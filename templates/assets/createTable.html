@@ -1,0 +1,1138 @@
+{% extends 'base-table.html' %}
+
+{% load static %}
+{% block content %}
+
+
+
+<section class="py-lg-80 py-30 overflow-xh">
+<div class="row ">
+    <div class="col-lg-2 col-md-2 col-2">     
+        
+             <nav class="navbar  vertical-navbar" style="display: none;">
+                <form  method="post" id="myForm">
+                    <div align="center">
+                        <button type="button" id="toggleNavbar" class="btn btn-sm"><i class="fa-solid fa-angles-left fa-2xl"></i></button>
+                        <button type="submit" class="submit-btn btn-sm" id="submitButton">Create table <i class="fas fa-spinner fa-spin" style="display: none;" id="spinner"></i></button>
+                        
+                    </div>
+                    <br></br>
+                    {% csrf_token %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link  " data-bs-toggle="collapse" href="#marketData" role="button" aria-expanded="false" aria-controls="marketData">
+                                Market Data 
+                                <i class="fas fa-caret-down " id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="marketData">
+                                <div class=" p-2">
+                                
+                                   
+                                    {% for metric in list_metrics %}
+                                        {% if metric.0 == 'market_data' %}
+                                            <div class="form-check form-check-test">
+                                                <input class="form-check-input" name="{{ metric.0 }}" type="checkbox" value="{{ metric.1 }}" id="{{ metric.1 }}">
+                                        <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                            {{ metric.2 }}
+                                        </label>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ metric.3 }}">
+                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                </svg>
+                                                
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                        
+                            <a class="nav-link" data-bs-toggle="collapse" href="#marketCap" role="button" aria-expanded="false" aria-controls="marketCap">
+                                Market Cap
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="marketCap">
+                                <div class=" p-2">
+                                
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'marketcap' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+
+                                                        {%endif%}
+                                                    {%endfor%}
+                                
+                                </div>
+                            </div>
+                        
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link" data-bs-toggle="collapse" href="#onChainData" role="button" aria-expanded="false" aria-controls="onChainData">
+                                On chain data
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="onChainData">
+                                <div class=" p-2">
+                                    
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'on_chain_data' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+
+                                                        {%endif%}
+                                                    {%endfor%}
+                                </div>
+                            </div>
+                            
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" data-bs-toggle="collapse" href="#supply" role="button" aria-expanded="false" aria-controls="supply">
+                                Supply
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="supply">
+                                <div class=" p-2">
+
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'supply' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+
+                                                        {%endif%}
+                                                    {%endfor%}
+                                                    
+                                </div>
+                            </div>
+                
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" data-bs-toggle="collapse" href="#allTimeHighLow" role="button" aria-expanded="false" aria-controls="allTimeHighLow">
+                                All time high low
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="allTimeHighLow">
+                                <div class=" p-2">
+
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'all_time_high' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+
+                                                        {%endif%}
+                                                    {%endfor%}
+                                                    
+                                </div>
+                            </div>
+            
+                        </li>
+                    
+                        <li class="nav-item">
+
+                        <a class="nav-link" data-bs-toggle="collapse" href="#mining_stats" role="button" aria-expanded="false" aria-controls="mining_stats">
+                            Minnig stats
+                            <i class="fas fa-caret-down" id="accordionIcon"></i>
+                        </a>
+                        <div class="collapse" id="mining_stats">
+                            <div class=" p-2">
+
+                                {%for metric in list_metrics%}
+                                                    {%if metric.0 == 'mining_stats' %}
+                                                    <div class="form-check form-check-test">
+                                                        <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                        <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                            {{metric.2}} 
+                                                        </label>&nbsp;
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                        </svg>
+                                                    </div>
+
+                                                    {%endif%}
+                                                {%endfor%}
+                                                
+                            </div>
+                        </div>
+        
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" data-bs-toggle="collapse" href="#token_sale_stats" role="button" aria-expanded="false" aria-controls="token_sale_stats">
+                                Token sale stats
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="token_sale_stats">
+                                <div class=" p-2">
+                                
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'token_sale_stats' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                                    
+                                </div>
+                            </div>
+                        
+                        </li> 
+                        <li class="nav-item">
+
+                            <a class="nav-link" data-bs-toggle="collapse" href="#blockchain_stats_24_hours" role="button" aria-expanded="false" aria-controls="blockchain_stats_24_hours">
+                                Blockchain stats 24 hours
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="blockchain_stats_24_hours">
+                                <div class=" p-2">
+                                
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'blockchain_stats_24_hours' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                                    
+                                </div>
+                            </div>
+                        
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#developer_activity" role="button" aria-expanded="false" aria-controls="developer_activity">
+                                Developer activity
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="developer_activity">
+                                <div class=" p-2">
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'developer_activity' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                </div>
+                            </div>
+                        
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#roi_data" role="button" aria-expanded="false" aria-controls="roi_data">
+                                Roi data
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="roi_data">
+                                <div class=" p-2">
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'roi_data' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                </div>
+                            </div>
+                        
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#roi_by_year" role="button" aria-expanded="false" aria-controls="roi_by_year">
+                                Roi by year
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="roi_by_year">
+                                <div class=" p-2">
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'roi_by_year' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                </div>
+                            </div>
+                        
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#risk_metrics" role="button" aria-expanded="false" aria-controls="risk_metrics">
+                                Risk metrics
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="risk_metrics">
+                                <div class=" p-2">
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'risk_metrics' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                </div>
+                            </div>
+                        
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#exchange_flows" role="button" aria-expanded="false" aria-controls="exchange_flows">
+                                Exchange flows
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="exchange_flows">
+                                <div class=" p-2">
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'exchange_flows' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                </div>
+                            </div>
+                        
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#miner_flows" role="button" aria-expanded="false" aria-controls="miner_flows">
+                                Miner flows
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="miner_flows">
+                                <div class=" p-2">
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'miner_flows' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                </div>
+                            </div>
+                        
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#supply_distribution" role="button" aria-expanded="false" aria-controls="supply_distribution">
+                                Supply distribution
+                                <i class="fas fa-caret-down" id="accordionIcon"></i>
+                            </a>
+                            <div class="collapse" id="supply_distribution">
+                                <div class=" p-2">
+                                    {%for metric in list_metrics%}
+                                                        {%if metric.0 == 'supply_distribution' %}
+                                                        <div class="form-check form-check-test">
+                                                            <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                            <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                {{metric.2}} 
+                                                            </label>&nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                            </svg>
+                                                        </div>
+                                                    
+                                                        {%endif%}
+                                                    {%endfor%}
+                                </div>
+                            </div>
+                        
+                        </li>
+                
+                    </ul>
+                    <br></br>
+                    
+                </form>
+            </nav>
+    </div>         
+                <div  class="col-lg-10 col-md-10 col-10">
+                    <div class="modal fade" id="navbarModal" tabindex="-1" aria-labelledby="navbarModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header" >
+                                    <h5 class="modal-title" id="navbarModalLabel">Menu</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                   
+                                        <form  method="post" id="form-modal">
+                                            <div align="center">
+                                                <button type="submit" class="submit-btn btn-sm" id="submitButton-modal">Create table <i class="fas fa-spinner fa-spin" style="display: none;" id="spinner-modal"></i></button>
+                                            </div>
+                                            <br></br>
+                                            {% csrf_token %}
+                                            <ul class="navbar-nav">
+                                                <li class="nav-item">
+                                                    <a class="nav-link  " data-bs-toggle="collapse" href="#marketData" role="button" aria-expanded="false" aria-controls="marketData">
+                                                        Market Data 
+                                                        <i class="fas fa-caret-down " id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="marketData">
+                                                        <div class=" p-2">
+                                                        
+                                                            {% for metric in list_metrics %}
+                                                                {% if metric.0 == 'market_data' %}
+                                                                    <div class="form-check form-check-test">
+                                                                        <input class="form-check-input" name="{{ metric.0 }}" type="checkbox" value="{{ metric.1 }}" id="{{ metric.1 }}">
+                                                                <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                    {{ metric.2 }}
+                                                                </label>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ metric.3 }}">
+                                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                        </svg>
+                                                                        
+                                                                    </div>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                
+                                                
+                                                <li class="nav-item">
+                                                
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#marketCap" role="button" aria-expanded="false" aria-controls="marketCap">
+                                                        Market Cap
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="marketCap">
+                                                        <div class=" p-2">
+                                                        
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'marketcap' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                        
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                        
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                                                <li class="nav-item">
+                        
+                                                <a class="nav-link" data-bs-toggle="collapse" href="#onChainData" role="button" aria-expanded="false" aria-controls="onChainData">
+                                                    On chain data
+                                                    <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                </a>
+                                                <div class="collapse" id="onChainData">
+                                                    <div class=" p-2">
+                                                        
+                                                        {%for metric in list_metrics%}
+                                                                            {%if metric.0 == 'on_chain_data' %}
+                                                                            <div class="form-check form-check-test">
+                                                                                <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                    {{metric.2}} 
+                                                                                </label>&nbsp;
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                            </div>
+                        
+                                                                            {%endif%}
+                                                                        {%endfor%}
+                                                    </div>
+                                                </div>
+                                                
+                                                </li>
+                        
+                                                <li class="nav-item">
+                        
+                                                <a class="nav-link" data-bs-toggle="collapse" href="#supply" role="button" aria-expanded="false" aria-controls="supply">
+                                                    Supply
+                                                    <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                </a>
+                                                <div class="collapse" id="supply">
+                                                    <div class=" p-2">
+                        
+                                                        {%for metric in list_metrics%}
+                                                                            {%if metric.0 == 'supply' %}
+                                                                            <div class="form-check form-check-test">
+                                                                                <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                    {{metric.2}} 
+                                                                                </label>&nbsp;
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                            </div>
+                        
+                                                                            {%endif%}
+                                                                        {%endfor%}
+                                                                        
+                                                    </div>
+                                                </div>
+                                        
+                                                </li>
+                        
+                                                <li class="nav-item">
+                        
+                                                <a class="nav-link" data-bs-toggle="collapse" href="#allTimeHighLow" role="button" aria-expanded="false" aria-controls="allTimeHighLow">
+                                                    All time high low
+                                                    <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                </a>
+                                                <div class="collapse" id="allTimeHighLow">
+                                                    <div class=" p-2">
+                        
+                                                        {%for metric in list_metrics%}
+                                                                            {%if metric.0 == 'all_time_high' %}
+                                                                            <div class="form-check form-check-test">
+                                                                                <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                    {{metric.2}} 
+                                                                                </label>&nbsp;
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                            </div>
+                        
+                                                                            {%endif%}
+                                                                        {%endfor%}
+                                                                        
+                                                    </div>
+                                                </div>
+                                    
+                                                </li>
+                                            
+                                                <li class="nav-item">
+                        
+                                                <a class="nav-link" data-bs-toggle="collapse" href="#mining_stats" role="button" aria-expanded="false" aria-controls="mining_stats">
+                                                    Minnig stats
+                                                    <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                </a>
+                                                <div class="collapse" id="mining_stats">
+                                                    <div class=" p-2">
+                        
+                                                        {%for metric in list_metrics%}
+                                                                            {%if metric.0 == 'mining_stats' %}
+                                                                            <div class="form-check form-check-test">
+                                                                                <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                    {{metric.2}} 
+                                                                                </label>&nbsp;
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                </svg>
+                                                                            </div>
+                        
+                                                                            {%endif%}
+                                                                        {%endfor%}
+                                                                        
+                                                    </div>
+                                                </div>
+                                
+                                                </li>
+                        
+                                                <li class="nav-item">
+                        
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#token_sale_stats" role="button" aria-expanded="false" aria-controls="token_sale_stats">
+                                                        Token sale stats
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="token_sale_stats">
+                                                        <div class=" p-2">
+                                                        
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'token_sale_stats' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                                            
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li> 
+                                                <li class="nav-item">
+                        
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#blockchain_stats_24_hours" role="button" aria-expanded="false" aria-controls="blockchain_stats_24_hours">
+                                                        Blockchain stats 24 hours
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="blockchain_stats_24_hours">
+                                                        <div class=" p-2">
+                                                        
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'blockchain_stats_24_hours' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                                            
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                                                
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#developer_activity" role="button" aria-expanded="false" aria-controls="developer_activity">
+                                                        Developer activity
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="developer_activity">
+                                                        <div class=" p-2">
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'developer_activity' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                                                
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#roi_data" role="button" aria-expanded="false" aria-controls="roi_data">
+                                                        Roi data
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="roi_data">
+                                                        <div class=" p-2">
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'roi_data' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                                                
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#roi_by_year" role="button" aria-expanded="false" aria-controls="roi_by_year">
+                                                        Roi by year
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="roi_by_year">
+                                                        <div class=" p-2">
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'roi_by_year' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                        
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#risk_metrics" role="button" aria-expanded="false" aria-controls="risk_metrics">
+                                                        Risk metrics
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="risk_metrics">
+                                                        <div class=" p-2">
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'risk_metrics' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                        
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#exchange_flows" role="button" aria-expanded="false" aria-controls="exchange_flows">
+                                                        Exchange flows
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="exchange_flows">
+                                                        <div class=" p-2">
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'exchange_flows' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                        
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#miner_flows" role="button" aria-expanded="false" aria-controls="miner_flows">
+                                                        Miner flows
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="miner_flows">
+                                                        <div class=" p-2">
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'miner_flows' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                        
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="collapse" href="#supply_distribution" role="button" aria-expanded="false" aria-controls="supply_distribution">
+                                                        Supply distribution
+                                                        <i class="fas fa-caret-down" id="accordionIcon"></i>
+                                                    </a>
+                                                    <div class="collapse" id="supply_distribution">
+                                                        <div class=" p-2">
+                                                            {%for metric in list_metrics%}
+                                                                                {%if metric.0 == 'supply_distribution' %}
+                                                                                <div class="form-check form-check-test">
+                                                                                    <input  class="form-check-input" name="{{metric.0}}"  type="checkbox" value="{{metric.1}}" id="{{metric.1}}">                                            
+                                                                                    <label class="form-check-label text-dark" for="{{ metric.1 }}">
+                                                                                        {{metric.2}} 
+                                                                                    </label>&nbsp;
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16" data-bs-toggle="tooltip" data-bs-placement="bottom" title={{metric.3}}>
+                                                                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                                                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                                                                    </svg>
+                                                                                </div>
+                                                                            
+                                                                                {%endif%}
+                                                                            {%endfor%}
+                                                        </div>
+                                                    </div>
+                                                
+                                                </li>
+                                        
+                                            </ul>
+                                            <br></br>
+                                            
+                                        </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10 col-md-10 col-10 d-flex align-items-center justify-content-between">
+                            
+                            <button class="cssbuttons-io-button" >
+                                Create table
+                                <div class="icon">
+                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                            
+                            <h1 align="center" class="container center-vertical">
+                                Crypto Market Indicators
+                               
+                            </h1>
+                           
+                            
+                           
+                        </div>
+                        <div class="button-container">
+                            <button class="btn btn-outline-success d-block d-md-none m-0 p-0  btn-narrow" data-bs-toggle="modal" data-bs-target="#navbarModal" >
+                                create table
+                            </button>
+                         </div>
+                        
+                    </div>
+                    
+                        <br></br>
+                        
+                        <div id="tableContainer">
+
+                            {% block table %}
+                            {% include 'assets/indicators.html' %}
+                        {% endblock %} 
+                        </div>    
+                      
+
+                </div>
+
+            
+                
+            
+        
+                    
+   
+</div>
+
+
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+ <script>
+    $(document).ready(function() {
+        
+        // Initial setup to ensure correct layout when the page loads
+        function hideNavbarAndAdjustLayout() {
+            $(".vertical-navbar").hide();  // Hide the navbar
+            $(".col-lg-2.col-md-2.col-2").addClass("d-none");  // Hide the column
+            $(".col-lg-10.col-md-10.col-10").addClass("col-lg-12 col-md-12 col-12");  // Adjust the column size
+            $(".cssbuttons-io-button").show();  // Show the "Create table" button
+        }
+
+        hideNavbarAndAdjustLayout();  // Call the function when the page loads
+
+        // When the toggleNavbar button is clicked
+        $("#toggleNavbar").click(function() {
+            $(".vertical-navbar").hide();  // Hide the navbar
+            $(".col-lg-2.col-md-2.col-2").addClass("d-none");  // Hide the column
+            $(".col-lg-10.col-md-10.col-10").addClass("col-lg-12 col-md-12 col-12");  // Adjust the column size
+            $(".cssbuttons-io-button").show();  // Show the "Create table" button
+        });
+    
+         //When the "Create table" button is clicked
+        $(".cssbuttons-io-button").click(function() {
+            $(".vertical-navbar").show();  // Show the navbar
+            $(".col-lg-2.col-md-2.col-2").removeClass("d-none");  // Show the column
+            $(".col-lg-10.col-md-10.col-10").removeClass("col-lg-12 col-md-12 col-12");  // Revert the column size
+            $(this).hide();  // Hide the "Create table" button
+        });
+
+        function checkWindowSize() {
+            // Obtener el ancho de la ventana
+            var windowWidth = $(window).width();
+            
+            if(windowWidth <= 768) {  // Asumiendo que 768px es el punto de interrupción para móviles
+                // Código para mostrar el botón de dispositivos móviles y ocultar el otro botón
+                $(".cssbuttons-io-button").hide();
+                $(".btn.d-block.d-md-none.m-0.p-0").show();
+            } else {
+                // Código para mostrar el botón de pantalla grande y ocultar el otro botón
+                $(".cssbuttons-io-button").show();
+                $(".btn.d-block.d-md-none.m-0.p-0").hide();
+            }
+        }
+    
+        // Llama a checkWindowSize en la carga de la página
+        checkWindowSize();
+    
+        // También puedes llamar a checkWindowSize en el evento resize de la ventana, si lo deseas
+        $(window).resize(function() {
+            checkWindowSize();
+        });
+    });
+</script>
+<script>
+    $( "#markedata" ).click(function() {
+        //alert('hola');
+        //$( "#metrics" ).html("<li class='list-group-item'><input class='form-check-input' type='checkbox' value='k' id='flexCheckDefault'>"
+        //"<label class='form-check-label' for='flexCheckDefault'>Default checkbo</label></li>"); 
+        $.ajax({
+            type: "get",
+            url: 'markeData',
+            success: function(data)
+            {            
+                $('#metrics').html(data)                                                                            
+            }
+        });     
+      });
+      $( "#markeCap" ).click(function() {
+       
+       
+        $.ajax({
+            type: "get",
+            url: 'markeCap',
+            success: function(data)
+            {            
+                $('#metrics').html(data)                                                                            
+            }
+        });     
+      });
+</script>
+<script>
+
+    $(window).on('scroll', function() {
+        var navbarHeight = $('.navbar-custom').outerHeight();  // Asume que 'navbar-custom' es la clase del navbar superior
+        var scrollPosition = $(window).scrollTop();
+        var windowHeight = $(window).height();
+    
+        if (scrollPosition > navbarHeight) {
+            $('.vertical-navbar').css('top', '0');
+            $('.vertical-navbar').css('height', windowHeight + 'px');
+        } else {
+            $('.vertical-navbar').css('top', navbarHeight - scrollPosition + 'px');
+            $('.vertical-navbar').css('height', (windowHeight + scrollPosition - navbarHeight) + 'px');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const marketDataElement = document.getElementById('marketData');
+        const accordionIcon = document.getElementById('accordionIcon');
+    
+        marketDataElement.addEventListener('show.bs.collapse', function () {
+            accordionIcon.classList.remove('fa-caret-down');
+            accordionIcon.classList.add('fa-caret-up');
+        });
+    
+        marketDataElement.addEventListener('hide.bs.collapse', function () {
+            accordionIcon.classList.remove('fa-caret-up');
+            accordionIcon.classList.add('fa-caret-down');
+        });
+    }); 
+    
+    
+</script> 
+
+ <script>
+    $(document).ready(function() {
+       
+        $("#submitButton").click(function(envent) {
+
+            // Muestra el spinner y deshabilita el botón
+        $("#spinner").show();
+        $("#submitButton").prop("disabled", true);
+             // Evita el comportamiento predeterminado del botón de envío
+        event.preventDefault();
+            $.ajax({
+                url: 'showTable',
+                method: 'POST',
+                data: $("#myForm").serialize(),
+                success: function(response) {
+                    // Oculta el spinner y habilita el botón
+                $("#spinner").hide();
+                $("#submitButton").prop("disabled", false);
+                    // Actualizar el contenido de la página con la respuesta
+                    $("#tableContainer").html(response);
+                    
+                },
+                error: function(error) {
+                    console.error("Hubo un error al enviar el formulario:", error);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#submitButton-modal").click(function(envent) {
+
+            // Muestra el spinner y deshabilita el botón
+        $("#spinner-modal").show();
+        $("#submitButton-modal").prop("disabled", true);
+             // Evita el comportamiento predeterminado del botón de envío
+        event.preventDefault();
+            $.ajax({
+                url: 'showTable',
+                method: 'POST',
+                data: $("#form-modal").serialize(),
+                success: function(response) {
+                    // Oculta el spinner y habilita el botón
+                $("#spinner-modal").hide();
+                $("#submitButton-modal").prop("disabled", false);
+                    // Actualizar el contenido de la página con la respuesta
+                    $("#tableContainer").html(response);
+                    // Oculta el modal
+                $("#navbarModal").modal('hide');
+                    
+                },
+                error: function(error) {
+                    console.error("Hubo un error al enviar el formulario:", error);
+                    // Oculta el modal
+                $("#navbarModal").modal('hide');
+                }
+            });
+        });
+    });
+</script> 
+
+
+{%endblock%}

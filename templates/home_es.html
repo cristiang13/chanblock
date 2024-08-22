@@ -1,0 +1,344 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style type="text/css"> 
+	#regulation {
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+</style>
+
+<section class="bt-1 bb-1 overflow-xh" data-aos="fade-up">
+	<div class="row">
+		<div class="col-12">
+			<div class="box mb-0">
+			  <div class="box-body">
+				  <!-- TradingView Widget BEGIN -->
+					<div class="tradingview-widget-container">
+					  <div class="tradingview-widget-container__widget"></div>
+					  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+					  {
+					  "symbols": [
+						{
+						  "proName": "BITSTAMP:BTCUSD",
+						  "title": "BTC/USD"
+						},
+						{
+						  "proName": "BITSTAMP:ETHUSD",
+						  "title": "ETH/USD"
+						},
+						{
+						  "description": "DOGEU/USDT",
+						  "proName": "BINANCE:DOGEUSDT"
+						},
+						{
+						  "description": "BTC/EUR",
+						  "proName": "COINBASE:BTCEUR"
+						},
+						{
+						  "description": "XRP/USD",
+						  "proName": "BITFINEX:XRPUSD"
+						},
+						{
+						  "description": "LINK/USDT",
+						  "proName": "BINANCE:LINKUSDT"
+						},
+						{
+						  "description": "ADAU/USDT",
+						  "proName": "BINANCE:ADAUSDT"
+						}
+					  ],
+					  "showSymbolLogo": true,
+					  "colorTheme": "light",
+					  "isTransparent": true,
+					  "displayMode": "adaptive",
+					  "locale": "in"
+					}
+					  </script>
+					</div>
+					<!-- TradingView Widget END -->
+			  </div>
+		  </div>
+		</div>
+	</div>
+</section>
+
+<section class="intro" >
+	<div class="container" >
+		<br> <br>																						
+		<h2 style="text-align: center">Somos una empresa de análisis de datos, ofrecemos datos de las diferentes blockchains, ayudamos a las empresas de criptomonedas e instituciones tanto privadas como gubernamentales a aumentar su confianza en la interacción con el criptomercado.<br>
+		Estamos contribuyendo a la regulación de las criptomonedas para aumentar el acceso de los consumidores de forma segura.</h2>															
+	</div>
+
+</section>
+<section style="padding-top: 80px" class="bt-1 py-lg-100 py-50 overflow-xh" data-aos="fade-up">
+	<div class="container">		
+		<div class="row mt-30 align-items-center" id="regulation">
+			<div class="col-md-5 col-12 d-block">
+				<p class="fsadmin-18 my-30">Soy un experto en criptomonedas y me encantaría ayudarte a aprovechar al máximo este apasionante mundo digital. Si está interesado en discutir sus ideas, aprender más sobre las criptomonedas o simplemente necesita algún consejo en esta área, no dude en programar una reunión conmigo. ¡Estoy aqui para ayudarte!.
+				<br>
+			</div>
+			<div class="col-md-7 col-12">					
+				<h1 class="mb-15">AGENDA TU CITA</h1>					
+				<hr class="w-100 bg-primary ms-0">
+				<hr>
+				<div class="calendly-inline-widget" data-url="https://calendly.com/3wtfinance?hide_landing_page_details=1&hide_gdpr_banner=1" style="width:100%;height:550px;"></div>
+				<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>								
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="education-section">
+	<div class="container" data-aos="fade-right">
+		<div class="row align-items-center">
+			<!-- Lado izquierdo: Imagen -->
+			<div class="col-lg-5 col-12 d-lg-block d-none">
+				<img src="{%static 'img/education.png'%}" class="img-fluid" alt="Education Image"/>
+			</div>
+  
+			<!-- Lado derecho: Texto -->
+			<div class="col-lg-7 col-12">
+				<h1 class="mb-15">EDUCACIÓN</h1>					
+				<hr class="w-100 bg-primary ms-0">						
+				<p class="fs-18 mb-20">
+					Formar profesionales a cargo del cumplimiento de normativas, empresas web3, instituciones financieras para el futuro, orientándolos a prevenir estafas, exploits en su código.
+				</p>									
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="analysis-section">
+	<div class="container" data-aos="fade-left">
+		<div class="row align-items-center">
+			<!-- Lado izquierdo: Contenido -->
+			<div class="col-lg-7 col-12 text-start">
+				<h6 class="sub-heading"></h6>
+				<h1 class="mb-15">ANÁLISIS</h1>					
+				<hr class="w-100 bg-primary ms-0">
+  
+				<ul class="nav nav-pills" role="tablist">
+					<li class="nav-item"> <a class="nav-link active fs-18 py-15" data-bs-toggle="tab" href="#home7" role="tab">UIF</a> </li>
+					<li class="nav-item"> <a class="nav-link py-15 fs-18" data-bs-toggle="tab" href="#profile7" role="tab">VASP</a> </li>
+					<li class="nav-item"> <a class="nav-link py-15 fs-18" data-bs-toggle="tab" href="#messages7" role="tab">AML/CTF</a> </li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="home7" role="tabpanel">
+						<div class="py-15">
+							<p class="fs-18 mb-20">Analizamos el blockchain para que tu equipo no cometa infracciones, ayudamos en las unidades de investigación de delitos financieros (IUF) para poder rastrear actividades sospechosas dentro del blockchain.</p>								
+						</div>
+					</div>
+					<div class="tab-pane" id="profile7" role="tabpanel">
+						<div class="py-15">
+							<p class="fs-18 mb-20"> Los VASP (Proveedores de Servicios de Activos Virtuales) son vitales para comprender el impacto de las Regulaciones en los negocios y servicios criptográficos. Mediante nuestro seguimiento continuo prevenimos el blanqueo de capitales y la financiación del terrorismo a través de estos servicios.
+							</p>
+						</div>
+					</div>
+					<div class="tab-pane" id="messages7" role="tabpanel">
+						<div class="py-15">
+							<p class="fs-18 mb-20">Los controles AML/CFT, cuando se implementan de manera efectiva en el sector de las criptomonedas, mitigan los efectos adversos de la actividad económica delictiva y promueven la integridad y la estabilidad en los mercados financieros.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+  
+			<!-- Lado derecho: Imagen -->
+			<div class="col-lg-5 col-12">
+				<img src="{%static 'img/analysis.png' %}" alt="Description of Image" class="img-fluid">
+			</div>
+		</div>
+	</div>
+</section>
+	
+
+
+<section class="regulation-section">
+	<div class="container" data-aos="fade-right">
+		<div class="row align-items-center">
+		   <!-- Lado derecho: Imagen -->
+		   <div class="col-lg-5 col-12 d-lg-block d-none">
+			<img src="{%static 'img/regulation.png'%}" class="img-fluid" alt="Regulation Image"/>
+		</div>
+			<!-- Lado izquierdo: Texto -->
+			<div class="col-lg-7 col-12">
+				<h1 class="mb-15">REGULACIÓN</h1>					
+				<hr class="w-100 bg-primary ms-0">					
+				<p class="fs-18 mb-20">
+					Asesoramos a los gobiernos sobre Blockchain. Brindamos a los reguladores la capacidad de supervisar transacciones y garantizar el cumplimiento ALD/CFT.<br>
+						Contamos con expertos en criptorregulación, tecnología blockchain, listos para capacitar a otros profesionales sobre tipologías de lavado de dinero y tendencias regulatorias.
+				</p>
+			</div>
+			
+		   
+		</div>
+	</div>
+</section>
+
+
+<section class="monitoring-section">
+	<div class="container" data-aos="fade-left">
+		<div class="row align-items-center">
+		   
+			<!-- Lado derecho: Texto -->
+			<div class="col-lg-7 col-12">
+				<h6 class="sub-heading"></h6>
+				<h1 class="mb-15">MONITOREO</h1>					
+				<hr class="w-100 bg-primary ms-0">					
+				<ul class="nav nav-pills" role="tablist">
+					<li class="nav-item"> 
+						<a class="nav-link active fs-18 py-15" data-bs-toggle="tab" href="#home7" role="tab">Mt.Gox</a> 
+					</li>
+					<li class="nav-item"> 
+						<a class="nav-link py-15 fs-18" data-bs-toggle="tab" href="#profile7" role="tab">Rich Wallets</a> 
+					</li>
+					
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="home7" role="tabpanel">
+						<div class="py-15">
+							<p class="fs-18 mb-20">Explore billeteras criptográficas en tiempo real y proteja su negocio de los delitos financieros. Descubra vínculos con el lavado de dinero, el financiamiento del terrorismo y las entidades sancionadas con perfiles de riesgo holísticos desde una billetera que da cuenta de todas las transacciones en todas las principales cadenas de bloques y activos.</p>								
+						</div>
+					</div>
+					<div class="tab-pane" id="profile7" role="tabpanel">
+						<div class="py-15">
+							<p class="fs-18 mb-20"> Access a database in which we have identified the wallets with the largest amount of cryptocurrencies belonging to different blockchains.</p>
+						</div>
+					</div>						
+				</div>
+			</div>
+  
+			 <!-- Lado izquierdo: Imagen -->
+			 <div class="col-lg-5 col-12 d-lg-block d-none">
+			  <img src="{%static 'img/monitoring.png'%}" class="img-fluid" alt="Monitoring Image"/>
+		  </div>
+  
+		</div>
+	</div>
+</section>
+
+
+<section class="py-50 bg-white" data-aos="fade-up">
+	<div class="container">
+	  <div class="row justify-content-center">
+		<div class="col-lg-7 col-12 text-center">					
+		  <h6 class="sub-heading">Nuestros servicios</h6>
+		  <h1 class="mb-15">Ahorra tiempo y dinero con Chanblock</h1>					
+		  <hr class="w-100 bg-primary">
+		</div>
+  
+	  </div>
+	  <br>
+	  <div class="row mt-30">
+		<div class="col-xl-4 col-md-4 col-12">
+		  <div class="box1 no-shadow">
+			<div class="box1-body">
+			  <span class="material-icons md-48">business</span>
+			  <h4>soluciones para negocios</h4>
+			  <div class="fs-16 mb-18">Es muy importante no tener interacción con criptomonedas involucradas en delitos, acceder a una API o un script con el que su empresa pueda estar siempre un paso por delante de los delincuentes.</div>
+			</div>
+		  </div>
+		</div>
+		<div class="col-xl-4 col-md-4 col-12">
+		  <div class="box1 no-shadow">
+			<div class="box1-body">
+			  <span class="material-icons md-48">
+				security
+				</span>
+			  <h4>OFAC</h4>
+			  <div class="fs-16 mb-18">Monitoreamos las direcciones que son penalizadas, de esta manera podemos identificar cuando se está a punto de cometer un delito dentro de la cadena de bloques.
+				</div>
+			</div>
+		  </div>
+		</div>
+		<div class="col-xl-4 col-md-4 col-12">
+		  <div class="box1 no-shadow">
+			<div class="box1-body">
+			  <span class="material-icons md-48">
+				table_chart
+				</span>
+			  <h4>Bases de datos</h4>
+			  <div class="fs-16">accede a una gran base de datos, con información filtrada lista para que crees tablas de acuerdo a tus necesidades.
+							</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+</section>
+
+
+
+<br>
+<br>
+<br>
+{% comment %} <section class="py-50 bg-white" data-aos="fade-up" >
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-12 text-center">
+        <h1 class="mb-15">Últimas noticias de Mt.Gox </h1>				
+        <hr class="w-100 bg-primary">
+      </div>
+    </div>
+    <br>
+    <div class="row mt-30">
+      
+      <div class="col-xl-4 col-md-4 col-12">
+        <div class="box2 no-shadow">
+          
+          <div class="box2-body">
+           
+              <h5>  ¿Las distribuciones de Mt. Gox reducirán aún más el precio de BTC?</h5>
+           
+            
+            <div class="fs-16 center">
+              <span class="material-symbols-outlined">
+                calendar_month
+                </span> 21 Jul 2022<br>Mt. Gox News en julio de 2022, el síndico de Mt. Gox publicó una actualización de que el síndico se está "preparando para hacer pagos" de acuerdo con "el plan de rehabilitación aprobado". El fideicomisario actualmente posee aproximadamente 140 000 BTC, BCH y US$500 000.
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 col-12">
+        <div class="box2 no-shadow">
+         
+          <div class="box2-body">
+            
+              <h5> Víctimas de Mt. Gox podrían recibir parte de sus bitcoins a partir de agosto</h5>
+            
+            <div class="fs-16 center">
+              <span class="material-symbols-outlined">
+                calendar_month
+                </span> 7 Jul 2022 <br>Víctimas del hackeo de la ya desaparecida casa de cambio de bitcoin (BTC) Mt.Gox, que costó la pérdida de más de 850 mil BTC, podrían recibir el reembolso de bitcoin a partir de agosto, en lo que podría traducirse como una amenaza de venta que podría dañar aún más la mercado ya turbulento.
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-4 col-12">
+        <div class="box2 no-shadow">
+      
+          <div class="box2-body">
+              <h5>¿Qué es el pago de Mt Gox?</h5>
+            <div class="fs-16 center">
+              <span class="material-symbols-outlined">
+                calendar_month
+                </span>12 Ago 2022 <br>En el año 2010 se lanzó la casa de cambio de criptomonedas Mt Gox, cuya sede estaba ubicada en la región especial de Shibuya, en la ciudad de Tokio, Japón. en 2014, el intercambio fue pirateado, Mt Gox se ha establecido como una de las plataformas de intercambio de bitcoins más grandes del mundo. De hecho, logró manejar alrededor del 70% de todas las transacciones realizadas en esta criptomoneda.
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> {% endcomment %}
+{% endblock%}

@@ -1,0 +1,118 @@
+
+{% block table %}
+  
+
+                                <div class="box-body-scale">
+
+                                   
+                                    <table id="example" class="table-custom " style="width:100%">
+                                         
+                                            <thead>
+                                                <tr role="row" >
+                                                    {% for name in nameColumns %}
+                                                        <th class="text-right" value="{{name}}"> {{name}} </th>
+                                                    {% endfor %}
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for metrics in list_metrics %}
+                                                    <tr>
+                                                        {% for variable in metrics %}
+                                                                
+                                                               
+                                                                {% if "-" in variable|first %}
+                                                                    <td class="no-wrap text-right" style="color:#FF0000">{{variable}}</td>
+
+                                                                {% elif "$" in variable|first %}
+                                                                <td class="no-wrap text-right" style="color:#0D2A5E"><strong>{{variable}}</strong></td>
+                                                                {% elif variable == None %}
+                                                                <td class="no-wrap text-right">-</td>
+                                                                {%else%}
+                                                                <td>{{variable}}</td>
+                                                                {%endif%}
+                                                               
+                                                           
+                                                        {% endfor %}   
+                                                    </tr>
+                                                {% endfor %} 
+
+                                            </tbody>
+                                        </table>
+                                    
+                                </div>
+                            <!-- /.box-body -->
+                            </div>
+            
+         
+        
+    
+ 
+
+
+	
+	
+
+
+<script>
+    $(document).ready(function() {
+        
+        // Destruir todas las instancias anteriores de DataTables
+        $.fn.dataTable.tables().forEach(function(table) {
+            $(table).DataTable().destroy();
+        });
+
+
+        // Inicializar DataTables para la tabla showTable
+        var tableShowTable = $('#example').DataTable({ 
+            "scrollY": 650,
+            "scrollX": true,
+            "pageLength": 100,
+            "scrollCollapse": true,
+            "fixedColumns": {
+                leftColumns: 2
+            }
+        });
+
+        // Tu código para obtener atributos 'value' de los elementos <th>
+        const elementosFila = document.getElementsByTagName("th");
+        for (let i = 0; i < elementosFila.length; i++) {
+            console.log(elementosFila[i].getAttribute('value'))
+        }
+
+        // Cuando se haga clic en el botón para ocultar/mostrar el navbar
+    $("#toggleNavbar").click(function() {
+        $(".vertical-navbar").toggle();  // Toggle the navbar visibility
+        // Recalculate the datatable dimensions after a slight delay
+        setTimeout(function() {
+            tableShowTable.columns.adjust().responsive.recalc();
+        }, 100);
+    });
+
+    // Cuando se haga clic en el botón "Create table"
+    $(".cssbuttons-io-button").click(function() {
+        $(".vertical-navbar").show();  // Show the navbar
+        // Recalculate the datatable dimensions after a slight delay
+        setTimeout(function() {
+            tableShowTable.columns.adjust().responsive.recalc();
+        }, 100);
+    });
+        
+    });
+</script>
+	
+{% if messages %}
+{% for message in messages %} 
+            
+    <script>
+        Swal.fire({
+                'title': '{{ message.tags }}',
+                'text': '{{message}}',
+                'icon': '{{ message.tags }}',
+                
+        })
+                
+    </script>
+         
+{% endfor %} 
+{% endif %}
+{% endblock %}

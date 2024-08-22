@@ -1,0 +1,401 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style type="text/css"> 
+	#regulation {
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+</style>
+
+<section class="bt-1 bb-1 overflow-xh" data-aos="fade-up">
+	<div class="row">
+			<div class="col-12">
+				<div class="box mb-0">
+				  <div class="box-body">
+					  <!-- TradingView Widget BEGIN -->
+						<div class="tradingview-widget-container">
+						  <div class="tradingview-widget-container__widget"></div>
+						  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+						  {
+						  "symbols": [
+							{
+							  "proName": "BITSTAMP:BTCUSD",
+							  "title": "BTC/USD"
+							},
+							{
+							  "proName": "BITSTAMP:ETHUSD",
+							  "title": "ETH/USD"
+							},
+							{
+							  "description": "DOGEU/USDT",
+							  "proName": "BINANCE:DOGEUSDT"
+							},
+							{
+							  "description": "BTC/EUR",
+							  "proName": "COINBASE:BTCEUR"
+							},
+							{
+							  "description": "XRP/USD",
+							  "proName": "BITFINEX:XRPUSD"
+							},
+							{
+							  "description": "LINK/USDT",
+							  "proName": "BINANCE:LINKUSDT"
+							},
+							{
+							  "description": "ADAU/USDT",
+							  "proName": "BINANCE:ADAUSDT"
+							}
+						  ],
+						  "showSymbolLogo": true,
+						  "colorTheme": "light",
+						  "isTransparent": true,
+						  "displayMode": "adaptive",
+						  "locale": "in"
+						}
+						  </script>
+						</div>
+						<!-- TradingView Widget END -->
+				  </div>
+			  </div>
+			</div>
+		</div>
+</section>
+
+<section class="py-lg-80 py-30 bg-dark3 overflow-xh" class="py-lg-80 py-30 bg-dark3" style="background-image: url({%static 'img/map-2.png'%}); background-position: top center;">
+		<div class="container">
+		  
+			<div class="row justify-content-center">
+				<div class="col-12">					
+					<div class="text-center" >
+					<h1><a href="{% url 'form_register_email'%}" class="box-title text-white mb-20" id='hover' >Click to suscribe and receive  real time alerts when mtgox moves or sell BTC<br>Haz click para suscribirse y recibir alertas en tiempo real cuando mtgox  mueva o venda BTC</a></h1>
+					</div>
+				</br>
+				</div>
+				<div class="col-lg-3 col-12">
+					<div class="widget footer_widget clearfix"> 
+						<form id='form_home_email'method="post">
+							{% csrf_token %}
+							<div class="input-group">
+								<input id="inputemail" name="email" required="required" class="form-control" placeholder="Your Email Address" type="email">
+								<button type="submit" class="btn btn-primary"> <i class="fa fa-envelope"></i> </button>
+							</div>
+						</form>
+					   
+					</div>
+				</div>			   
+			</div>
+		</div>
+</section> 
+	
+   
+
+<section >
+	<div class="container" >
+		<br> <br>																						
+		<h2 style="text-align: center">We are a data analysis, we offer data from the different blockchains, we help cryptocurrency companies and both private and government institutions to increase their confidence in the interaction with the crypto market.<br>
+		<br>We are contributing to the regulation of cryptocurrencies to increase consumer access safely.</h2>															
+	</div>
+
+</section>
+
+<section  style="padding-top: 20px" class="bt-1 py-lg-100 py-50 overflow-xh" data-aos="fade-up" >
+	<div class="container">		
+		<div class="row mt-30 align-items-center" id="regulation">
+			 <div class="col-lg-5 col-12 d-lg-block d-none ">
+				<img src="{%static 'img/services/education.jpg'%}"/>
+			</div>  
+				<div class="col-lg-7 col-12">					
+				<h1 class="mb-15">BOOKING</h1>					
+				<hr class="w-100 bg-primary ms-0">						
+				<p class="fs-18 my-30">I'm a cryptocurrency expert and I would love to help you make the most of this exciting digital world. If you're interested in discussing your ideas, learning more about cryptocurrencies, or just need some advice in this area, feel free to schedule a meeting with me. I'm here to help you!.
+				<!-- Principio del widget integrado de Calendly -->
+				<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/3wtfinance" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+				<!-- Final del widget integrado de Calendly -->
+				
+				</p>									
+			</div>
+		</div>
+	</div>
+</section>
+
+<section  style="padding-top: 20px" class="bt-1 py-lg-100 py-50 overflow-xh" data-aos="fade-up" >
+	<div class="container">		
+		<div class="row mt-30 align-items-center" id="regulation">
+			<div class="col-lg-5 col-12 d-lg-block d-none ">
+				<img src="{%static 'img/services/education.jpg'%}"/>
+			</div>
+			<div class="col-lg-7 col-12">					
+				<h1 class="mb-15">EDUCATION</h1>					
+				<hr class="w-100 bg-primary ms-0">						
+				<p class="fs-18 my-30">Train professionals in charge of compliance with regulations, web3 companies, financial institutions for the future, guiding them how to prevent from SCAMS, to exploits in their code.
+				</p>									
+			</div>
+		</div>
+	</div>
+</section>
+	
+<section class="py-lg-100 py-50 overflow-xh" data-aos="fade-up">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-7 col-12 text-start">
+				<h6 class="sub-heading"></h6>
+				<h1 class="mb-15">ANALYSIS</h1>					
+				<hr class="w-100 bg-primary ms-0">
+					
+				<ul class="nav nav-pills" role="tablist">
+					<li class="nav-item"> <a class="nav-link active fs-18 py-15" data-bs-toggle="tab" href="#home7" role="tab">UIF</a> </li>
+					<li class="nav-item"> <a class="nav-link py-15 fs-18" data-bs-toggle="tab" href="#profile7" role="tab">VASP</a> </li>
+					<li class="nav-item"> <a class="nav-link py-15 fs-18" data-bs-toggle="tab" href="#messages7" role="tab">AML/CTF</a> </li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="home7" role="tabpanel">
+						<div class="py-15">
+							<p class="fs-18 mb-20">We analyze the blockchain so that your team does not commit infractions, we help in the financial crime investigation units (IUF) to be able to track suspicious activities within the blockchain.</p>								
+						</div>
+					</div>
+					<div class="tab-pane" id="profile7" role="tabpanel">
+						<div class="py-15">
+							<p class="fs-18 mb-20"> VASPs (Virtual Asset Service Providers) they are vital to understanding the impact of Regulations on crypto businesses and services. Through our continuous monitoring we prevent money laundering and the financing of terrorism through these services.
+							</p>
+						</div>
+					</div>
+					<div class="tab-pane" id="messages7" role="tabpanel">
+						<div class="py-15">
+							<p class="fs-18 mb-20">Anti-Money Laundering/Combating the Financing of Terrorism (AML/CFT), AML/CFT controls, when effectively implemented in the crypto sector, mitigate the adverse effects of criminal economic activity and promote integrity and stability in financial markets.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 col-12 d-lg-block d-none" >                               
+                <img src="{%static 'img/services/imag1.jpg'%}"/>                    
+			</div>
+		</div>
+	</div>
+</section>
+	
+	
+<section  style="padding-top: 20px" class="bt-1 py-lg-100 py-50 overflow-xh" data-aos="fade-up" >
+		<div class="container">		
+			<div class="row mt-30 align-items-center" id="regulation">
+				<div class="col-lg-5 col-12 d-lg-block d-none">
+                    <img src="{%static 'img/services/regulation.jpg'%}"/>
+				</div>
+				<div class="col-lg-7 col-12">					
+					<h1 class="mb-15">REGULATION</h1>					
+					<hr class="w-100 bg-primary ms-0">					
+					<p class="fs-18 my-30">We advise governments on Blockchain, We provide regulators with the ability to supervise transactions and ensure AML/CFT compliance.<br>
+                        We have experts in crypto regulation, blockchain technology, ready to train other professionals on money laundering typologies and regulatory trends.</p>
+					
+					<div class="countnm-bx">
+						<div class="row">
+							<div class="col-xl-3 col-6">
+								<div class="bg-white box-shadowed rounded p-20 mb-30">
+									<h1 class="my-10 fw-300"><span class="countnm">70</span>k</h1>
+									<p class="text-uppercase mb-0">consumers</p>
+								</div>
+							</div>
+							<div class="col-xl-3 col-6">
+								<div class="bg-white box-shadowed rounded p-20 mb-30">
+									<h1 class="my-10 fw-300"><span class="countnm">2</span>+</h1>
+									<p class="text-uppercase mb-0">countries</p>
+								</div>
+							</div>
+							<div class="col-xl-3 col-6">
+								<div class="bg-white box-shadowed rounded p-20 mb-30">
+									<h1 class="my-10 fw-300"><span class="countnm">50</span>+</h1>
+									<p class="text-uppercase mb-0">industries</p>
+								</div>
+							</div>
+							<div class="col-xl-3 col-6">                            
+								<div class="bg-white box-shadowed rounded p-20 mb-30">
+									<h1 class="my-10 fw-300"><span class="countnm">650</span>k</h1>
+									<p class="text-uppercase mb-0">brands</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="text-center d-flex gap-3 justify-content-start">
+						{% comment %} <a href="#" class="btn btn-primary">Explore the tool</a>
+						<a href="https://www.youtube.com/channel/UCbcRX17baOMJDT2tQGMdyAQ" class="btn btn-outline btn-primary"> <i class="fa fa-youtube-play me-10"></i>Watch the tutorial</a> {% endcomment %}
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+
+<section class="py-lg-100 py-50 overflow-xh" data-aos="fade-up">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-7 col-12 text-start">
+					<h6 class="sub-heading"></h6>
+					<h1 class="mb-15">MONITORING</h1>					
+					<hr class="w-100 bg-primary ms-0">
+					
+					<ul class="nav nav-pills" role="tablist">
+						<li class="nav-item"> <a class="nav-link active fs-18 py-15" data-bs-toggle="tab" href="#home7" role="tab">Mt.Gox</a> </li>
+						<li class="nav-item"> <a class="nav-link py-15 fs-18" data-bs-toggle="tab" href="#profile7" role="tab">Rich Wallets</a> </li>
+						{% comment %} <li class="nav-item"> <a class="nav-link py-15 fs-18" data-bs-toggle="tab" href="#messages7" role="tab">AML/CTF</a> </li> {% endcomment %}
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div class="tab-pane active" id="home7" role="tabpanel">
+							<div class="py-15">
+								<p class="fs-18 mb-20">Browse crypto wallets in real time and protect your business from financial crime. Uncover links to money laundering, terrorist financing, and sanctioned entities with holistic risk profiles from a wallet that accounts for all transactions across all major blockchains and assets.</p>								
+							</div>
+						</div>
+						<div class="tab-pane" id="profile7" role="tabpanel">
+							<div class="py-15">
+								<p class="fs-18 mb-20"> Access a database in which we have identified the wallets with the largest amount of cryptocurrencies belonging to different blockchains.
+								</p>
+							</div>
+						</div>						
+					</div>
+				</div>
+				<div class="col-lg-5 col-12 d-lg-block d-none" >                               
+                        <img src="{%static 'img/merkatBTC.png'%}"/>                    
+				</div>
+			</div>
+		</div>
+</section>
+
+
+	
+    
+
+<section class="py-50 bg-white" data-aos="fade-up">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7 col-12 text-center">					
+					<h6 class="sub-heading">Our Service</h6>
+					<h1 class="mb-15">Save time & money with Chanblock</h1>					
+					<hr class="w-100 bg-primary">
+				</div>
+			</div>
+			<div class="row mt-30">
+				<div class="col-xl-4 col-md-4 col-12">
+					<div class="box no-shadow">
+						<div class="box-body">
+							<span class="text-primary fs-50"><i class="fa fa-trophy"></i></span>
+							<div class="fw-600 fs-18 mb-2 mt-15">business solutions</div>
+							<div class="fs-16">It is very important not to have interaction with cryptocurrencies involved in crimes, access an API or a script with which your company can always be one step ahead of criminals.</div>
+							<a href="#" class="d-block mt-30 fs-18 hover-primary"> <i class="ms-5 fa fa-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-4 col-12">
+					<div class="box no-shadow">
+						<div class="box-body">
+							<span class="text-primary fs-50"><i class="fa fa-user-secret"></i></span>
+							<div class="fw-600 fs-18 mb-2 mt-15">OFAC</div>
+							<div class="fs-16">We monitor the addresses that are penalized, in this way we can identify when a crime is about to be committed within the blockchain
+                                .</div>
+							<a href="#" class="d-block mt-30 fs-18 hover-primary"><i class="ms-5 fa fa-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-4 col-12">
+					<div class="box no-shadow">
+						<div class="box-body">
+							<span class="text-primary fs-50"><i class="fa fa-database"></i></span>
+							<div class="fw-600 fs-18 mb-2 mt-15">databases</div>
+							<div class="fs-16">access a large database, with filtered information ready for you to create tables according to your needs
+                            </div>
+							<a href="#" class="d-block mt-30 fs-18 hover-primary">demo <i class="ms-5 fa fa-arrow-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+	
+<section class="py-50" data-aos="fade-up">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-7 col-12 text-center">
+					<h1 class="mb-15">Latest Mt.Gox News </h1>				
+					<hr class="w-100 bg-primary">
+				</div>
+			</div>
+			
+			<div class="row mt-30">
+				<div class="entry-image clearfix">
+					
+					<div class="owl-carousel bottom-dots-center owl-theme" data-nav-dots="true" data-autoplay="true"  data-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1">
+						<div class="item">                                
+						</div>
+						<div class="item">                               
+						</div>
+						<div class="item">
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-4 col-12">
+					<div class="blog-post">
+					  
+						<div class="blog-detail">
+							<div class="entry-title mb-10">
+								<a >Will Mt. Gox distributions crash the BTC price further?</a>
+							</div>
+							<div class="entry-meta mb-10">
+								<ul class="list-unstyled">                                
+									<li><a ><i class="fa fa-calendar-o"></i> 21 Jul 2022</a></li>
+								</ul>
+							</div>
+							<div class="entry-content">
+								<p style="text-align: justify">Mt. Gox news in July 2022, the Mt. Gox trustee posted an update that the trustee is “preparing to make repayments” in “accordance with the approved rehabilitation plan”. The trustee currently holds approximately 140,000 BTC, BCH and U.S.$500,000.</p>
+							</div>
+	
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-4 col-12">
+					<div class="blog-post">
+						
+						<div class="blog-detail">
+							<div class="entry-title mb-10">
+								<a>Victims of Mt. Gox could receive part of their bitcoins as early as August</a>
+							</div>
+							<div class="entry-meta mb-10">
+								<ul class="list-unstyled">
+									<li><a ><i class="fa fa-calendar-o"></i> 7 Jul 2022</a></li>
+								</ul>
+							</div>
+							<div class="entry-content">
+								<p style="text-align: justify">Victims of the hack of the now defunct bitcoin (BTC) exchange Mt.Gox, which cost the loss of more than 850 thousand BTC, could receive bitcoin repayment as August, in what could be translated as a threat of sale that could further damage the already turbulent market.</p>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-md-4 col-12">
+					<div class="blog-post">
+				
+						<div class="blog-detail">
+							<div class="entry-title mb-10">
+								<a>What is payout Mt Gox?</a>
+							</div>
+							<div class="entry-meta mb-10">
+								<ul class="list-unstyled">  
+									<li><a ><i class="fa fa-calendar-o"></i> 12 Aug 2022</a></li>
+								</ul>
+							</div>
+							<div class="entry-content">
+								<p style="text-align: justify">In 2010, the Mt Gox cryptocurrency exchange was launched, whose headquarters were located in the special region of Shibuya, in the city of Tokyo, Japan. in 2014 the exchange was hacked, Mt Gox has established itself as one of the largest bitcoin exchange platforms in the world. In fact, it managed to handle about 70% of all transactions made in this cryptocurrency.</p>
+							</div>
+						  
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+{% endblock%}
